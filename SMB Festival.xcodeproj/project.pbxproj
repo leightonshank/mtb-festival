@@ -1,0 +1,440 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B3BC4147141988C400E70C20 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BC4146141988C400E70C20 /* UIKit.framework */; };
+		B3BC4149141988C400E70C20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BC4148141988C400E70C20 /* Foundation.framework */; };
+		B3BC414B141988C400E70C20 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BC414A141988C400E70C20 /* CoreGraphics.framework */; };
+		B3BC4151141988C400E70C20 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3BC414F141988C400E70C20 /* InfoPlist.strings */; };
+		B3BC4153141988C400E70C20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BC4152141988C400E70C20 /* main.m */; };
+		B3BC4157141988C400E70C20 /* SMB_FestivalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BC4156141988C400E70C20 /* SMB_FestivalAppDelegate.m */; };
+		B3BC415A141988C400E70C20 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3BC4158141988C400E70C20 /* MainWindow.xib */; };
+		B3BC4162141988C400E70C20 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BC4161141988C400E70C20 /* SenTestingKit.framework */; };
+		B3BC4163141988C400E70C20 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BC4146141988C400E70C20 /* UIKit.framework */; };
+		B3BC4164141988C400E70C20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BC4148141988C400E70C20 /* Foundation.framework */; };
+		B3BC4165141988C400E70C20 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BC414A141988C400E70C20 /* CoreGraphics.framework */; };
+		B3BC416D141988C400E70C20 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3BC416B141988C400E70C20 /* InfoPlist.strings */; };
+		B3BC416F141988C400E70C20 /* SMB_FestivalTests.h in Resources */ = {isa = PBXBuildFile; fileRef = B3BC416E141988C400E70C20 /* SMB_FestivalTests.h */; };
+		B3BC4171141988C400E70C20 /* SMB_FestivalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BC4170141988C400E70C20 /* SMB_FestivalTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B3BC4166141988C400E70C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3BC4139141988C300E70C20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3BC4141141988C300E70C20;
+			remoteInfo = "SMB Festival";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B3BC4142141988C300E70C20 /* SMB Festival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SMB Festival.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3BC4146141988C400E70C20 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B3BC4148141988C400E70C20 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B3BC414A141988C400E70C20 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B3BC414E141988C400E70C20 /* SMB Festival-Info.plist */ = {isa = PBXFileReference; path = "SMB Festival-Info.plist"; sourceTree = "<group>"; };
+		B3BC4150141988C400E70C20 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B3BC4152141988C400E70C20 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B3BC4154141988C400E70C20 /* SMB Festival-Prefix.pch */ = {isa = PBXFileReference; path = "SMB Festival-Prefix.pch"; sourceTree = "<group>"; };
+		B3BC4155141988C400E70C20 /* SMB_FestivalAppDelegate.h */ = {isa = PBXFileReference; path = SMB_FestivalAppDelegate.h; sourceTree = "<group>"; };
+		B3BC4156141988C400E70C20 /* SMB_FestivalAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMB_FestivalAppDelegate.m; sourceTree = "<group>"; };
+		B3BC4159141988C400E70C20 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		B3BC4160141988C400E70C20 /* SMB FestivalTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SMB FestivalTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3BC4161141988C400E70C20 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B3BC416A141988C400E70C20 /* SMB FestivalTests-Info.plist */ = {isa = PBXFileReference; path = "SMB FestivalTests-Info.plist"; sourceTree = "<group>"; };
+		B3BC416C141988C400E70C20 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B3BC416E141988C400E70C20 /* SMB_FestivalTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMB_FestivalTests.h; sourceTree = "<group>"; };
+		B3BC4170141988C400E70C20 /* SMB_FestivalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMB_FestivalTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B3BC413F141988C300E70C20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3BC4147141988C400E70C20 /* UIKit.framework in Frameworks */,
+				B3BC4149141988C400E70C20 /* Foundation.framework in Frameworks */,
+				B3BC414B141988C400E70C20 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3BC415C141988C400E70C20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3BC4162141988C400E70C20 /* SenTestingKit.framework in Frameworks */,
+				B3BC4163141988C400E70C20 /* UIKit.framework in Frameworks */,
+				B3BC4164141988C400E70C20 /* Foundation.framework in Frameworks */,
+				B3BC4165141988C400E70C20 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B3BC4137141988C300E70C20 = {
+			isa = PBXGroup;
+			children = (
+				B3BC414C141988C400E70C20 /* SMB Festival */,
+				B3BC4168141988C400E70C20 /* SMB FestivalTests */,
+				B3BC4145141988C300E70C20 /* Frameworks */,
+				B3BC4143141988C300E70C20 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B3BC4143141988C300E70C20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B3BC4142141988C300E70C20 /* SMB Festival.app */,
+				B3BC4160141988C400E70C20 /* SMB FestivalTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B3BC4145141988C300E70C20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3BC4146141988C400E70C20 /* UIKit.framework */,
+				B3BC4148141988C400E70C20 /* Foundation.framework */,
+				B3BC414A141988C400E70C20 /* CoreGraphics.framework */,
+				B3BC4161141988C400E70C20 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3BC414C141988C400E70C20 /* SMB Festival */ = {
+			isa = PBXGroup;
+			children = (
+				B3BC4155141988C400E70C20 /* SMB_FestivalAppDelegate.h */,
+				B3BC4156141988C400E70C20 /* SMB_FestivalAppDelegate.m */,
+				B3BC4158141988C400E70C20 /* MainWindow.xib */,
+				B3BC414D141988C400E70C20 /* Supporting Files */,
+			);
+			path = "SMB Festival";
+			sourceTree = "<group>";
+		};
+		B3BC414D141988C400E70C20 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3BC414E141988C400E70C20 /* SMB Festival-Info.plist */,
+				B3BC414F141988C400E70C20 /* InfoPlist.strings */,
+				B3BC4152141988C400E70C20 /* main.m */,
+				B3BC4154141988C400E70C20 /* SMB Festival-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3BC4168141988C400E70C20 /* SMB FestivalTests */ = {
+			isa = PBXGroup;
+			children = (
+				B3BC416E141988C400E70C20 /* SMB_FestivalTests.h */,
+				B3BC4170141988C400E70C20 /* SMB_FestivalTests.m */,
+				B3BC4169141988C400E70C20 /* Supporting Files */,
+			);
+			path = "SMB FestivalTests";
+			sourceTree = "<group>";
+		};
+		B3BC4169141988C400E70C20 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3BC416A141988C400E70C20 /* SMB FestivalTests-Info.plist */,
+				B3BC416B141988C400E70C20 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B3BC4141141988C300E70C20 /* SMB Festival */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3BC4174141988C400E70C20 /* Build configuration list for PBXNativeTarget "SMB Festival" */;
+			buildPhases = (
+				B3BC413E141988C300E70C20 /* Sources */,
+				B3BC413F141988C300E70C20 /* Frameworks */,
+				B3BC4140141988C300E70C20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SMB Festival";
+			productName = "SMB Festival";
+			productReference = B3BC4142141988C300E70C20 /* SMB Festival.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B3BC415F141988C400E70C20 /* SMB FestivalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3BC4177141988C400E70C20 /* Build configuration list for PBXNativeTarget "SMB FestivalTests" */;
+			buildPhases = (
+				B3BC415B141988C400E70C20 /* Sources */,
+				B3BC415C141988C400E70C20 /* Frameworks */,
+				B3BC415D141988C400E70C20 /* Resources */,
+				B3BC415E141988C400E70C20 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3BC4167141988C400E70C20 /* PBXTargetDependency */,
+			);
+			name = "SMB FestivalTests";
+			productName = "SMB FestivalTests";
+			productReference = B3BC4160141988C400E70C20 /* SMB FestivalTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B3BC4139141988C300E70C20 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Ideas for Stuff";
+			};
+			buildConfigurationList = B3BC413C141988C300E70C20 /* Build configuration list for PBXProject "SMB Festival" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B3BC4137141988C300E70C20;
+			productRefGroup = B3BC4143141988C300E70C20 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B3BC4141141988C300E70C20 /* SMB Festival */,
+				B3BC415F141988C400E70C20 /* SMB FestivalTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B3BC4140141988C300E70C20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3BC4151141988C400E70C20 /* InfoPlist.strings in Resources */,
+				B3BC415A141988C400E70C20 /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3BC415D141988C400E70C20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3BC416D141988C400E70C20 /* InfoPlist.strings in Resources */,
+				B3BC416F141988C400E70C20 /* SMB_FestivalTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B3BC415E141988C400E70C20 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B3BC413E141988C300E70C20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3BC4153141988C400E70C20 /* main.m in Sources */,
+				B3BC4157141988C400E70C20 /* SMB_FestivalAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3BC415B141988C400E70C20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3BC4171141988C400E70C20 /* SMB_FestivalTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B3BC4167141988C400E70C20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3BC4141141988C300E70C20 /* SMB Festival */;
+			targetProxy = B3BC4166141988C400E70C20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B3BC414F141988C400E70C20 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3BC4150141988C400E70C20 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B3BC4158141988C400E70C20 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3BC4159141988C400E70C20 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		B3BC416B141988C400E70C20 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3BC416C141988C400E70C20 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B3BC4172141988C400E70C20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B3BC4173141988C400E70C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B3BC4175141988C400E70C20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMB Festival/SMB Festival-Prefix.pch";
+				INFOPLIST_FILE = "SMB Festival/SMB Festival-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B3BC4176141988C400E70C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMB Festival/SMB Festival-Prefix.pch";
+				INFOPLIST_FILE = "SMB Festival/SMB Festival-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B3BC4178141988C400E70C20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SMB Festival.app/SMB Festival";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMB Festival/SMB Festival-Prefix.pch";
+				INFOPLIST_FILE = "SMB FestivalTests/SMB FestivalTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B3BC4179141988C400E70C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SMB Festival.app/SMB Festival";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMB Festival/SMB Festival-Prefix.pch";
+				INFOPLIST_FILE = "SMB FestivalTests/SMB FestivalTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B3BC413C141988C300E70C20 /* Build configuration list for PBXProject "SMB Festival" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3BC4172141988C400E70C20 /* Debug */,
+				B3BC4173141988C400E70C20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3BC4174141988C400E70C20 /* Build configuration list for PBXNativeTarget "SMB Festival" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3BC4175141988C400E70C20 /* Debug */,
+				B3BC4176141988C400E70C20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B3BC4177141988C400E70C20 /* Build configuration list for PBXNativeTarget "SMB FestivalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3BC4178141988C400E70C20 /* Debug */,
+				B3BC4179141988C400E70C20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B3BC4139141988C300E70C20 /* Project object */;
+}

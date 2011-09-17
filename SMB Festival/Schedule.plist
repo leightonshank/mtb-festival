@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Friday, October 7th</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Six Pack Downhill</string>
+			<key>Time</key>
+			<string>4:00pm</string>
+			<key>Description</key>
+			<string>This weekly ride has been going on for 14 years. A fun group ride to a nearby mountain with an individual time trial down the mountain to see who gets to wear the Women’s and Men’s leader jersey for the weekend. You can still do the ride even if you don’t want to be timed on the downhill. No six pack entry this week; it is part of the festival registration. The ride will take place on Trimble Mountain (Boyscout). The Four mile loop is beautiful pure singletrack bliss. This is a group ride more than a race with most people riding from the campground but some parking at the trail head near the Todd Lake Dam.</string>
+			<key>Level</key>
+			<string>Moderate</string>
+			<key>Length</key>
+			<string>2 - 3 hours</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Narrowback at Night</string>
+			<key>Time</key>
+			<string>8:30pm</string>
+			<key>Description</key>
+			<string>Enjoy the trails at night but make sure you have a good light. A short jaunt down Tillman road then up dog graveyard to the ridge. The ride will then climb the ridge along the cookie trail to the towers, out the secret south and then take Forest Service roads back down to the campground.</string>
+			<key>Level</key>
+			<string>Moderate</string>
+			<key>Length</key>
+			<string>1.5 - 2.5 hours</string>
+		</dict>
+	</array>
+	<key>Saturday, October 8th</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Trail Work</string>
+			<key>Time</key>
+			<string>9:00am</string>
+			<key>Description</key>
+			<string>Bring some good working clothes, gloves, and some liquids. SVBC will supply the tools and the guidance. This year’s efforts will be focused on rerouting the Wild Oak trail as it leaves Camp Todd and climbs up to Little Bald Knob.</string>
+			<key>Level</key>
+			<string>n/a</string>
+			<key>Length</key>
+			<string>3 hours</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>The Dowells Draft-Road Hollow-Braleys Express</string>
+			<key>Time</key>
+			<string>9:30am</string>
+			<key>Description</key>
+			<string>If you have most of the day to destroy yourself this might be your ride. You will leave the campground and go up Shaffer Hollow Trail, descend Dowells Draft, then hit the pavement of 250 to Mountain House. At this point you can either climb Bridge Hollow or the pavement up to Confederate Breastworks. Whether you descend Road Hollow or cut to the chase and begin the ascent up Bridge Hollow you are rewarded with one of the best downhills on the planet with the Braley’s descent. From there take the pavement back around to the Campground or if you are especially crazy you can climb back up Dowell’s Draft!</string>
+			<key>Level</key>
+			<string>Difficult/Insane</string>
+			<key>Length</key>
+			<string>5 - 7 hours</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Kids Trailer Ride</string>
+			<key>Time</key>
+			<string>11:00am</string>
+			<key>Description</key>
+			<string>This ride will not hit the trails but will travel some of the beautiful back roads near Stokesville. Expect a mix of gravel and paved roads. Road bikes, mountain bikes, cross bikes, hybrids and trailers will all fit for this ride.</string>
+			<key>Level</key>
+			<string>Easy/Moderate</string>
+			<key>Length</key>
+			<string>1 - 1.5 hours</string>
+		</dict>
+	</array>
+</dict>
+</plist>

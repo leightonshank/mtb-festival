@@ -11,10 +11,12 @@
 @implementation SMB_FestivalAppDelegate
 
 @synthesize window = _window;
+@synthesize rootController = _rootController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self.window addSubview:_rootController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -61,6 +63,7 @@
 - (void)dealloc
 {
     [_window release];
+    [_rootController release];
     [super dealloc];
 }
 

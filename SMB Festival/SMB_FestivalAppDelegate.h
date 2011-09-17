@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SMB_FestivalAppDelegate : NSObject <UIApplicationDelegate>
+@interface SMB_FestivalAppDelegate : NSObject <UIApplicationDelegate> {
+    UIWindow *window;
+    UITabBarController *rootController;
+}
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet UITabBarController *rootController;
 
 @end

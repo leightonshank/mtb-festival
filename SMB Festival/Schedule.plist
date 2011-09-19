@@ -2,70 +2,232 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Friday, October 7th</key>
+	<key>Root</key>
 	<array>
 		<dict>
-			<key>Name</key>
-			<string>Six Pack Downhill</string>
-			<key>Time</key>
-			<string>4:00pm</string>
-			<key>Description</key>
-			<string>This weekly ride has been going on for 14 years. A fun group ride to a nearby mountain with an individual time trial down the mountain to see who gets to wear the Women’s and Men’s leader jersey for the weekend. You can still do the ride even if you don’t want to be timed on the downhill. No six pack entry this week; it is part of the festival registration. The ride will take place on Trimble Mountain (Boyscout). The Four mile loop is beautiful pure singletrack bliss. This is a group ride more than a race with most people riding from the campground but some parking at the trail head near the Todd Lake Dam.</string>
-			<key>Level</key>
-			<string>Moderate</string>
-			<key>Length</key>
-			<string>2 - 3 hours</string>
+			<key>Label</key>
+			<string>Friday, October 7th</string>
+			<key>Items</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Six Pack Downhill</string>
+					<key>Time</key>
+					<string>4:00pm</string>
+					<key>Description</key>
+					<string>This weekly ride has been going on for 14 years. A fun group ride to a nearby mountain with an individual time trial down the mountain to see who gets to wear the Women’s and Men’s leader jersey for the weekend. You can still do the ride even if you don’t want to be timed on the downhill. No six pack entry this week; it is part of the festival registration. The ride will take place on Trimble Mountain (Boyscout). The Four mile loop is beautiful pure singletrack bliss. This is a group ride more than a race with most people riding from the campground but some parking at the trail head near the Todd Lake Dam.</string>
+					<key>Level</key>
+					<string>Moderate</string>
+					<key>Length</key>
+					<string>2 - 3 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Narrowback at Night</string>
+					<key>Time</key>
+					<string>8:30pm</string>
+					<key>Description</key>
+					<string>Enjoy the trails at night but make sure you have a good light. A short jaunt down Tillman road then up dog graveyard to the ridge. The ride will then climb the ridge along the cookie trail to the towers, out the secret south and then take Forest Service roads back down to the campground.</string>
+					<key>Level</key>
+					<string>Moderate</string>
+					<key>Length</key>
+					<string>1.5 - 2.5 hours</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
-			<key>Name</key>
-			<string>Narrowback at Night</string>
-			<key>Time</key>
-			<string>8:30pm</string>
-			<key>Description</key>
-			<string>Enjoy the trails at night but make sure you have a good light. A short jaunt down Tillman road then up dog graveyard to the ridge. The ride will then climb the ridge along the cookie trail to the towers, out the secret south and then take Forest Service roads back down to the campground.</string>
-			<key>Level</key>
-			<string>Moderate</string>
-			<key>Length</key>
-			<string>1.5 - 2.5 hours</string>
+			<key>Label</key>
+			<string>Saturday, October 8th</string>
+			<key>Items</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Trail Work</string>
+					<key>Time</key>
+					<string>9:00am</string>
+					<key>Description</key>
+					<string>Bring some good working clothes, gloves, and some liquids. SVBC will supply the tools and the guidance. This year’s efforts will be focused on rerouting the Wild Oak trail as it leaves Camp Todd and climbs up to Little Bald Knob.</string>
+					<key>Level</key>
+					<string></string>
+					<key>Length</key>
+					<string>3 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>The Dowells Draft-Road Hollow-Braleys Express</string>
+					<key>Time</key>
+					<string>9:30am</string>
+					<key>Description</key>
+					<string>If you have most of the day to destroy yourself this might be your ride. You will leave the campground and go up Shaffer Hollow Trail, descend Dowells Draft, then hit the pavement of 250 to Mountain House. At this point you can either climb Bridge Hollow or the pavement up to Confederate Breastworks. Whether you descend Road Hollow or cut to the chase and begin the ascent up Bridge Hollow you are rewarded with one of the best downhills on the planet with the Braley’s descent. From there take the pavement back around to the Campground or if you are especially crazy you can climb back up Dowell’s Draft!</string>
+					<key>Level</key>
+					<string>Difficult/Insane</string>
+					<key>Length</key>
+					<string>5 - 7 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Kids Trailer Ride</string>
+					<key>Time</key>
+					<string>11:00am</string>
+					<key>Description</key>
+					<string>This ride will not hit the trails but will travel some of the beautiful back roads near Stokesville. Expect a mix of gravel and paved roads. Road bikes, mountain bikes, cross bikes, hybrids and trailers will all fit for this ride.</string>
+					<key>Level</key>
+					<string>Easy/Moderate</string>
+					<key>Length</key>
+					<string>1 - 1.5 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Women&apos;s Ride &amp; Clinic</string>
+					<key>Time</key>
+					<string>1:30pm</string>
+					<key>Description</key>
+					<string>This ride will be a great opportunity to practice your skills on the trails. Instead of a clinic at the campground this ride will stop along several sections on the trail to help you with your skills in a comfortable, relaxed atmosphere. Afterwards join in for the “Ladies Social Tea Time Hour”.</string>
+					<key>Level</key>
+					<string>All Women Welcome</string>
+					<key>Length</key>
+					<string>2 - 3 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Post Trail Work Ride</string>
+					<key>Time</key>
+					<string>2:00pm</string>
+					<key>Description</key>
+					<string>Three ride options will depart from the campground at the same time. One big group will roll out of Stokesville and head down Forest Road 95 toward Todd Lake. Trimble Mountain will see the group’s first split. Those who want a shorter ride option will ride the Trimble Mountain loop. The rest of the group will continue onward only to split again with one group heading up Hankey and towards Lookout Mountain (option to drop into the campground or ride Lookout Mountain). The final group looking for the most difficult ride will continue along the road to Camp Todd and then climb up Camp Todd to Little Bald, descending Chestnut ridge to Grindstone.</string>
+					<key>Level</key>
+					<string>Moderate/Difficult</string>
+					<key>Length</key>
+					<string>2 - 4 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Gravel Road Ride</string>
+					<key>Time</key>
+					<string>2:30pm</string>
+					<key>Description</key>
+					<string>Check out the awesome paved and gravel roads that Augusta County has to offer. A mountain bike or road bike should work for this one.</string>
+					<key>Level</key>
+					<string>Easy/Moderate</string>
+					<key>Length</key>
+					<string>1.5 - 2 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>The Next Generation Ride</string>
+					<key>Time</key>
+					<string>2:30pm</string>
+					<key>Description</key>
+					<string>Help introduce the sport to the next generation. All are welcome for this ride with the hopes of bringing together the youth from age 8-18. **A group will ride to the Narrow Back Trail but there will also a shuttle group that drives to the trail head.</string>
+					<key>Level</key>
+					<string>Easy/Moderate</string>
+					<key>Length</key>
+					<string>1 - 2.5 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>&quot;Ladies Social Tea Time Hour&quot;</string>
+					<key>Time</key>
+					<string>5:00pm</string>
+					<key>Description</key>
+					<string>Ladies, no matter the route you take on Saturday, come out for the “Tea Time”. A great opportunity to gather, talk and enjoy some snacks &amp; beverages. Look for the exclusive “ladies only” tent set up near the pavilion for a great way to end the day in good company.</string>
+					<key>Level</key>
+					<string>All Ladies Welcome!</string>
+					<key>Length</key>
+					<string>1 hour</string>
+				</dict>
+			</array>
 		</dict>
-	</array>
-	<key>Saturday, October 8th</key>
-	<array>
 		<dict>
-			<key>Name</key>
-			<string>Trail Work</string>
-			<key>Time</key>
-			<string>9:00am</string>
-			<key>Description</key>
-			<string>Bring some good working clothes, gloves, and some liquids. SVBC will supply the tools and the guidance. This year’s efforts will be focused on rerouting the Wild Oak trail as it leaves Camp Todd and climbs up to Little Bald Knob.</string>
-			<key>Level</key>
-			<string>n/a</string>
-			<key>Length</key>
-			<string>3 hours</string>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>The Dowells Draft-Road Hollow-Braleys Express</string>
-			<key>Time</key>
-			<string>9:30am</string>
-			<key>Description</key>
-			<string>If you have most of the day to destroy yourself this might be your ride. You will leave the campground and go up Shaffer Hollow Trail, descend Dowells Draft, then hit the pavement of 250 to Mountain House. At this point you can either climb Bridge Hollow or the pavement up to Confederate Breastworks. Whether you descend Road Hollow or cut to the chase and begin the ascent up Bridge Hollow you are rewarded with one of the best downhills on the planet with the Braley’s descent. From there take the pavement back around to the Campground or if you are especially crazy you can climb back up Dowell’s Draft!</string>
-			<key>Level</key>
-			<string>Difficult/Insane</string>
-			<key>Length</key>
-			<string>5 - 7 hours</string>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>Kids Trailer Ride</string>
-			<key>Time</key>
-			<string>11:00am</string>
-			<key>Description</key>
-			<string>This ride will not hit the trails but will travel some of the beautiful back roads near Stokesville. Expect a mix of gravel and paved roads. Road bikes, mountain bikes, cross bikes, hybrids and trailers will all fit for this ride.</string>
-			<key>Level</key>
-			<string>Easy/Moderate</string>
-			<key>Length</key>
-			<string>1 - 1.5 hours</string>
+			<key>Label</key>
+			<string>Sunday, October 9th</string>
+			<key>Items</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Trail Work</string>
+					<key>Time</key>
+					<string>9:00am</string>
+					<key>Description</key>
+					<string>Bring some good working clothes, gloves, and some liquids. SVBC will supply the tools and the guidance. This year’s efforts will be focused on rerouting the Wild Oak trail as it leaves Camp Todd and climbs up to Little Bald Knob.</string>
+					<key>Level</key>
+					<string></string>
+					<key>Length</key>
+					<string>3 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Sunday Fatty: Hearthstone-Wolfe-Narrowback</string>
+					<key>Time</key>
+					<string>9:30am</string>
+					<key>Description</key>
+					<string>This ride will take the group up the Hearthstone trail, down Wolfe (riding new SVBC trailwork) then back up Narrowback along the ridge and back to the Campground. A nice mix of trail will give you a bit of everything, ripping fast descent on Wolfe and semi-rocky ridge line on Narrowback.</string>
+					<key>Level</key>
+					<string>Difficult</string>
+					<key>Length</key>
+					<string>4 - 5 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Women&apos;s &quot;Adventure&quot; Ride</string>
+					<key>Time</key>
+					<string>10:00am</string>
+					<key>Description</key>
+					<string>This will be the more difficult women’s ride for the Sunday. Expect to get deep in the National Forest, traveling some of the more difficult single track in the GW National Forest. The route will be determined by the ride leader depending on the skills of the group.</string>
+					<key>Level</key>
+					<string>Moderate/Difficult</string>
+					<key>Length</key>
+					<string>2 - 4 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Women&apos;s &quot;Calm&quot; Ride</string>
+					<key>Time</key>
+					<string>10:00am</string>
+					<key>Description</key>
+					<string>For those women who want to sleep in an extra hour or just do the easy of the two women’s rides for the day. This ride will leave from the campground and fun relax atmosphere. The route will be determined by the ride leader and will make sure the group has fun and avoids anything too crazy.</string>
+					<key>Level</key>
+					<string>Moderate</string>
+					<key>Length</key>
+					<string>2 - 4 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>County Gravel Road Ride</string>
+					<key>Time</key>
+					<string>1:30pm</string>
+					<key>Description</key>
+					<string>Mountain, road or cross bikes will all be suitable for this casual ride. You will travel some of the best county roads in Augusta County and all of Virginia.</string>
+					<key>Level</key>
+					<string>Easy/Moderate</string>
+					<key>Length</key>
+					<string>1.5 - 2 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Post Trail Work Ride</string>
+					<key>Time</key>
+					<string>1:30pm</string>
+					<key>Description</key>
+					<string>Lookout Mountain will be the site of this ride. The group will climb out of the campground up the Steep Shaffer Hollow trail and then descend Lookout Mountain back down to the suspension bridge over the North River. The group will stop at a spectacular overlook that gives a glimpse into the North River Gorge.</string>
+					<key>Level</key>
+					<string>Moderate/Difficult</string>
+					<key>Length</key>
+					<string>2.5 - 3 hours</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Festival Closing Ride on Narrow Back</string>
+					<key>Time</key>
+					<string>2:00pm</string>
+					<key>Description</key>
+					<string>This ride has become a tradition at the festival. A chill pace ride on moderate trails on Narrow Back Mountain. This ride will showcase a handful of trial work projects that the SVBC has accomplished on Narrowback Mountain over the past 6 years.</string>
+					<key>Level</key>
+					<string>Moderate</string>
+					<key>Length</key>
+					<string>2 - 3 hours</string>
+				</dict>
+			</array>
 		</dict>
 	</array>
 </dict>

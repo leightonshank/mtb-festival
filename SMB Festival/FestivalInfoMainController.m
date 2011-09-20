@@ -11,9 +11,10 @@
 #import "GeneralInfoController.h"
 #import "RegistrationController.h"
 #import "CampingController.h"
-#import "DirectionsController.h"
+//#import "DirectionsController.h"
 #import "VolunteerController.h"
 #import "GearSwapController.h"
+#import "MapViewController.h"
 
 @implementation FestivalInfoMainController
 
@@ -88,11 +89,20 @@
     [campingController release];
     
     // Directions
+    /*
     DirectionsController *directionsController = [[DirectionsController alloc] initWithNibName:@"DirectionsController" bundle:nil];
     directionsController.title = @"Directions";
     //directionsController.rowImage = [UIImage imageNamed:@"image.png"];
     [array addObject:directionsController];
     [directionsController release];
+     */
+    
+    //MapView
+    MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
+    mapViewController.title = @"Map and Directions";
+    //mapViewController.rowImage = [UIImage imageNamed:@"image.png"];
+    [array addObject:mapViewController];
+    [mapViewController release];
     
     // Volunteers
     VolunteerController *volunteersController = [[VolunteerController alloc] initWithNibName:@"VolunteerController" bundle:nil];

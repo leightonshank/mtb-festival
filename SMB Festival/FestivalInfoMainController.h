@@ -13,11 +13,9 @@
 {
     NSArray *sections;
     UITableView *infoTable;
-    UIView *titleView;
 }
 
 @property (nonatomic,retain) NSArray *sections;
 @property (nonatomic,retain) IBOutlet UITableView *infoTable;
-@property (nonatomic,retain) IBOutlet UIView *titleView;
 
 @end

@@ -75,6 +75,12 @@
 - (IBAction)buttonPressed:(id)sender {
     RegistrationWebController *nextController = [[RegistrationWebController alloc] initWithNibName:@"RegistrationWebController" bundle:nil];
     nextController.title = @"Register On-Line";
+    
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+    back.title = @"Back";
+    self.navigationItem.backBarButtonItem = back;
+    [back release];
+    
     [self.navigationController pushViewController:nextController animated:YES];
 }
 

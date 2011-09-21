@@ -20,7 +20,7 @@
 
 @synthesize sections;
 @synthesize infoTable;
-@synthesize titleView;
+
 
 - (void) dealloc {
     [super dealloc];
@@ -50,8 +50,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+    back.title = @"Back";
+    self.navigationItem.backBarButtonItem = back;
+    [back release];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"svbc.png"]];
+    self.navigationItem.titleView = imageView;
+    [imageView release];
+    
     self.title = @"Information";
-    self.navigationItem.titleView = titleView;
+
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:247.0/255.0 green:147.0/255.0 blue:30.0/255.0 alpha:1.0];
     
     self.infoTable.backgroundColor = [UIColor clearColor];
@@ -83,7 +92,7 @@
     
     // Camping
     CampingController *campingController = [[CampingController alloc] initWithNibName:@"CampingController" bundle:nil];
-    campingController.title = @"Camping";
+    campingController.title = @"Campground";
     //campingController.rowImage = [UIImage imageNamed:@"image.png"];
     [array addObject:campingController];
     [campingController release];
@@ -99,7 +108,7 @@
     
     //MapView
     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
-    mapViewController.title = @"Map and Directions";
+    mapViewController.title = @"Maps";
     //mapViewController.rowImage = [UIImage imageNamed:@"image.png"];
     [array addObject:mapViewController];
     [mapViewController release];

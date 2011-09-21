@@ -243,6 +243,11 @@
     detailView.length = [details objectForKey:@"Length"];
     detailView.description = [details objectForKey:@"Description"];
     
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+    back.title = @"Back";
+    self.navigationItem.backBarButtonItem = back;
+    [back release]; 
+    
     [self.navigationController pushViewController:detailView animated:YES];
 }
 

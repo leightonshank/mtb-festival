@@ -11,6 +11,12 @@
 @implementation CampingController
 @synthesize page, scroll;
 
+- (void) dealloc {
+    [super dealloc];
+    [page release];
+    [scroll release];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,11 +50,18 @@
     [scroll setContentSize:CGSizeMake(self.view.frame.size.width, page.frame.size.height)];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [scroll flashScrollIndicators];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.page = nil;
+    self.scroll = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

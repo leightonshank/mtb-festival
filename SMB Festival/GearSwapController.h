@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "FestivalInfoViewController.h"
 
-@interface GearSwapController : FestivalInfoViewController
+@interface GearSwapController : FestivalInfoViewController {
+    UIScrollView *scroll;
+    UIView *page;
+}
+
+@property (nonatomic,retain) IBOutlet UIScrollView *scroll;
+@property (nonatomic,retain) IBOutlet UIView *page;
 
 @end

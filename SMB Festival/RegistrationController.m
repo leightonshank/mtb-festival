@@ -7,16 +7,19 @@
 //
 
 #import "RegistrationController.h"
-#import "RegistrationWebController.h"
 
 @implementation RegistrationController
 @synthesize scroll;
 @synthesize page;
+@synthesize webController;
+@synthesize button;
 
 - (void) dealloc {
     [super dealloc];
     [scroll release];
     [page release];
+    [webController release];
+    [button release];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,6 +45,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+    back.title = @"Back";
+    self.navigationItem.backBarButtonItem = back;
+    [back release];
+    
+    // setup buttons
+    UIImage *buttonImageNormal = [UIImage imageNamed:@"yellowButton.png"];
+    UIImage *stretchableButtonImageNormal = [buttonImageNormal stretchableImageWithLeftCapWidth:16 topCapHeight:0];
+    [button setBackgroundImage:stretchableButtonImageNormal forState:UIControlStateNormal];
+    
+    UIImage *buttonImagePressed = [UIImage imageNamed:@"greenButton.png"];
+    UIImage *stretchableButtonImagePressed = [buttonImagePressed stretchableImageWithLeftCapWidth:16 topCapHeight:0];
+    [button setBackgroundImage:stretchableButtonImagePressed forState:UIControlStateHighlighted];
     
     self.page.backgroundColor = [UIColor clearColor];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
@@ -63,6 +79,8 @@
     // e.g. self.myOutlet = nil;
     self.scroll = nil;
     self.page = nil;
+    self.webController = nil;
+    self.button = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -73,15 +91,14 @@
 
 #pragma mark - IBAction methods
 - (IBAction)buttonPressed:(id)sender {
-    RegistrationWebController *nextController = [[RegistrationWebController alloc] initWithNibName:@"RegistrationWebController" bundle:nil];
-    nextController.title = @"Register On-Line";
+    if (self.webController == nil) {
+        RegistrationWebController *nextController = [[RegistrationWebController alloc] initWithNibName:@"RegistrationWebController" bundle:nil];
+        nextController.title = @"Register On-Line";
+        self.webController = nextController;
+        [nextController release];
+    }
     
-    UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
-    back.title = @"Back";
-    self.navigationItem.backBarButtonItem = back;
-    [back release];
-    
-    [self.navigationController pushViewController:nextController animated:YES];
+    [self.navigationController pushViewController:self.webController animated:YES];
 }
 
 @end

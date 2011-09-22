@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "FestivalInfoViewController.h"
+#import "VolunteerWebController.h"
 
-@interface VolunteerController : FestivalInfoViewController
+@interface VolunteerController : FestivalInfoViewController {
+    VolunteerWebController *webController;
+    UIButton *button;
+}
+
+@property (nonatomic,retain) VolunteerWebController *webController;
+@property (nonatomic,retain) IBOutlet UIButton *button;
+
+- (IBAction)buttonPressed:(id)sender;
 
 @end

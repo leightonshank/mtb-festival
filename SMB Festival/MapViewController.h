@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "FestivalInfoViewController.h"
+#import "RMMapView.h"
 
-@class RMMapView;
-
-
-@interface MapViewController : FestivalInfoViewController {
+@interface MapViewController : FestivalInfoViewController <RMMapViewDelegate> {
     RMMapView *mapView;
 }
 

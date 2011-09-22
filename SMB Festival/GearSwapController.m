@@ -9,6 +9,13 @@
 #import "GearSwapController.h"
 
 @implementation GearSwapController
+@synthesize scroll, page;
+
+- (void) dealloc {
+    [super dealloc];
+    [scroll release];
+    [page release];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +42,17 @@
     // Do any additional setup after loading the view from its nib.
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
+    
+    self.page.backgroundColor = [UIColor clearColor];
+    
+    // setup the page in the scroll view
+    [scroll addSubview:page];
+    [scroll setContentSize:CGSizeMake(self.view.frame.size.width, page.frame.size.height)];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [scroll flashScrollIndicators];
 }
 
 - (void)viewDidUnload
@@ -42,6 +60,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.scroll = nil;
+    self.page = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

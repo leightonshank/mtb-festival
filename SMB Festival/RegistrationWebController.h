@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegistrationWebController : UIViewController {
+@interface RegistrationWebController : UIViewController 
+    <UIWebViewDelegate, UIAlertViewDelegate> 
+{
     UIWebView *web;
+    UIView *loading;
 }
 
 @property (nonatomic,retain) IBOutlet UIWebView *web;
+@property (nonatomic,retain) IBOutlet UIView *loading;
+
+- (void)loadPage;
 
 @end

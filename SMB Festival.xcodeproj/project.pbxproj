@@ -16,6 +16,12 @@
 		B3013915141EF51F00ED0C08 /* VolunteerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3013913141EF51E00ED0C08 /* VolunteerController.xib */; };
 		B3013919141EF85200ED0C08 /* GearSwapController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3013917141EF85100ED0C08 /* GearSwapController.m */; };
 		B301391A141EF85200ED0C08 /* GearSwapController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3013918141EF85200ED0C08 /* GearSwapController.xib */; };
+		B3152AA614299B3500951B23 /* volunteer.html in Resources */ = {isa = PBXBuildFile; fileRef = B3152AA514299B3500951B23 /* volunteer.html */; };
+		B3152AAC14299DE400951B23 /* tiles.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = B3152AAB14299DE400951B23 /* tiles.mbtiles */; };
+		B3152AB7142AE64200951B23 /* greenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3152AB5142AE64200951B23 /* greenButton.png */; };
+		B3152AB8142AE64200951B23 /* greenButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3152AB6142AE64200951B23 /* greenButton@2x.png */; };
+		B3152ABB142AE65400951B23 /* yellowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3152AB9142AE65400951B23 /* yellowButton.png */; };
+		B3152ABC142AE65400951B23 /* yellowButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3152ABA142AE65400951B23 /* yellowButton@2x.png */; };
 		B32B144F14250CA7006A7B55 /* festival-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B32B144D14250CA7006A7B55 /* festival-logo.png */; };
 		B32B145014250CA7006A7B55 /* festival-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B32B144E14250CA7006A7B55 /* festival-logo@2x.png */; };
 		B32B145214250F1A006A7B55 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B32B145114250F1A006A7B55 /* bg.png */; };
@@ -25,6 +31,14 @@
 		B37302C91426D23B004FF830 /* FestivalAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B37302C81426D23B004FF830 /* FestivalAnnotation.m */; };
 		B37302CE1426D6E0004FF830 /* MapDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = B37302CC1426D6E0004FF830 /* MapDetailController.m */; };
 		B37302CF1426D6E0004FF830 /* MapDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B37302CD1426D6E0004FF830 /* MapDetailController.xib */; };
+		B37302F614281017004FF830 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37302F514281017004FF830 /* CoreLocation.framework */; };
+		B37302F814281033004FF830 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37302F714281032004FF830 /* QuartzCore.framework */; };
+		B37302FA14281051004FF830 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B37302F914281051004FF830 /* libsqlite3.dylib */; };
+		B37302FF14281F7E004FF830 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B37302FD14281F7D004FF830 /* MapViewController.m */; };
+		B373030014281F7E004FF830 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B37302FE14281F7E004FF830 /* MapViewController.xib */; };
+		B37303271428419B004FF830 /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B373031F1428417C004FF830 /* libMapView.a */; };
+		B3730332142990D1004FF830 /* VolunteerWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3730330142990CD004FF830 /* VolunteerWebController.m */; };
+		B3730333142990D1004FF830 /* VolunteerWebController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3730331142990CE004FF830 /* VolunteerWebController.xib */; };
 		B39C986E14251CF900AB1CEB /* ScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39C986D14251CF900AB1CEB /* ScheduleController.m */; };
 		B39C98721425251700AB1CEB /* Schedule.plist in Resources */ = {isa = PBXBuildFile; fileRef = B39C98711425251700AB1CEB /* Schedule.plist */; };
 		B39C98741425337500AB1CEB /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B39C98731425337500AB1CEB /* ScheduleCell.xib */; };
@@ -66,6 +80,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B373031E1428417C004FF830 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B373030E1428417B004FF830 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17F31EFA1331050A00122B16;
+			remoteInfo = MapView;
+		};
+		B37303201428417C004FF830 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B373030E1428417B004FF830 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17157D87133BBC8300E28941;
+			remoteInfo = MapViewTests;
+		};
+		B37303221428417C004FF830 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B373030E1428417B004FF830 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2BF3078F0F8AC5C0007014EE;
+			remoteInfo = "Unit Tests";
+		};
+		B37303251428418F004FF830 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B373030E1428417B004FF830 /* MapView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B8C974130E8A19B2007D16AD;
+			remoteInfo = MapView;
+		};
 		B3BC4166141988C400E70C20 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B3BC4139141988C300E70C20 /* Project object */;
@@ -89,6 +131,12 @@
 		B3013916141EF84F00ED0C08 /* GearSwapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GearSwapController.h; sourceTree = "<group>"; };
 		B3013917141EF85100ED0C08 /* GearSwapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GearSwapController.m; sourceTree = "<group>"; };
 		B3013918141EF85200ED0C08 /* GearSwapController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GearSwapController.xib; sourceTree = "<group>"; };
+		B3152AA514299B3500951B23 /* volunteer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = volunteer.html; sourceTree = "<group>"; };
+		B3152AAB14299DE400951B23 /* tiles.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = tiles.mbtiles; sourceTree = "<group>"; };
+		B3152AB5142AE64200951B23 /* greenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenButton.png; sourceTree = "<group>"; };
+		B3152AB6142AE64200951B23 /* greenButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenButton@2x.png"; sourceTree = "<group>"; };
+		B3152AB9142AE65400951B23 /* yellowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowButton.png; sourceTree = "<group>"; };
+		B3152ABA142AE65400951B23 /* yellowButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowButton@2x.png"; sourceTree = "<group>"; };
 		B32B144D14250CA7006A7B55 /* festival-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "festival-logo.png"; sourceTree = "<group>"; };
 		B32B144E14250CA7006A7B55 /* festival-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "festival-logo@2x.png"; sourceTree = "<group>"; };
 		B32B145114250F1A006A7B55 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
@@ -100,6 +148,16 @@
 		B37302CB1426D6E0004FF830 /* MapDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDetailController.h; sourceTree = "<group>"; };
 		B37302CC1426D6E0004FF830 /* MapDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDetailController.m; sourceTree = "<group>"; };
 		B37302CD1426D6E0004FF830 /* MapDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapDetailController.xib; sourceTree = "<group>"; };
+		B37302F514281017004FF830 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B37302F714281032004FF830 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B37302F914281051004FF830 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		B37302FC14281F7D004FF830 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		B37302FD14281F7D004FF830 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		B37302FE14281F7E004FF830 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		B373030E1428417B004FF830 /* MapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MapView.xcodeproj; path = "../route-me/MapView/MapView.xcodeproj"; sourceTree = "<group>"; };
+		B373032F142990CC004FF830 /* VolunteerWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolunteerWebController.h; sourceTree = "<group>"; };
+		B3730330142990CD004FF830 /* VolunteerWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunteerWebController.m; sourceTree = "<group>"; };
+		B3730331142990CE004FF830 /* VolunteerWebController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolunteerWebController.xib; sourceTree = "<group>"; };
 		B39C986C14251CF900AB1CEB /* ScheduleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleController.h; sourceTree = "<group>"; };
 		B39C986D14251CF900AB1CEB /* ScheduleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleController.m; sourceTree = "<group>"; };
 		B39C98711425251700AB1CEB /* Schedule.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Schedule.plist; sourceTree = "<group>"; };
@@ -155,6 +213,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B37303271428419B004FF830 /* libMapView.a in Frameworks */,
+				B37302FA14281051004FF830 /* libsqlite3.dylib in Frameworks */,
+				B37302F814281033004FF830 /* QuartzCore.framework in Frameworks */,
+				B37302F614281017004FF830 /* CoreLocation.framework in Frameworks */,
 				B3013910141EE04C00ED0C08 /* MapKit.framework in Frameworks */,
 				B3BC4147141988C400E70C20 /* UIKit.framework in Frameworks */,
 				B3BC4149141988C400E70C20 /* Foundation.framework in Frameworks */,
@@ -187,6 +249,10 @@
 		B32EF8271422BDBA003ED498 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B3152AB9142AE65400951B23 /* yellowButton.png */,
+				B3152ABA142AE65400951B23 /* yellowButton@2x.png */,
+				B3152AB5142AE64200951B23 /* greenButton.png */,
+				B3152AB6142AE64200951B23 /* greenButton@2x.png */,
 				B3DAB00714256EED0037CED0 /* disclosure-icon.png */,
 				B3DAB00814256EED0037CED0 /* disclosure-icon@2x.png */,
 				B3C459FF14255B1100BBFC25 /* schedule-header.png */,
@@ -207,6 +273,32 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		B373030F1428417B004FF830 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B373031F1428417C004FF830 /* libMapView.a */,
+				B37303211428417C004FF830 /* MapViewTests.octest */,
+				B37303231428417C004FF830 /* RM Unit Tests.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B373032814297273004FF830 /* map data */ = {
+			isa = PBXGroup;
+			children = (
+				B3152AAB14299DE400951B23 /* tiles.mbtiles */,
+			);
+			name = "map data";
+			sourceTree = "<group>";
+		};
+		B3730334142997A7004FF830 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				B3152AA514299B3500951B23 /* volunteer.html */,
+			);
+			name = html;
+			sourceTree = "<group>";
+		};
 		B39C986B14251C7F00AB1CEB /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +315,7 @@
 		B3BC4137141988C300E70C20 = {
 			isa = PBXGroup;
 			children = (
+				B373030E1428417B004FF830 /* MapView.xcodeproj */,
 				B3BC414C141988C400E70C20 /* SMB Festival */,
 				B3BC4168141988C400E70C20 /* SMB FestivalTests */,
 				B3BC4145141988C300E70C20 /* Frameworks */,
@@ -242,6 +335,9 @@
 		B3BC4145141988C300E70C20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B37302F914281051004FF830 /* libsqlite3.dylib */,
+				B37302F714281032004FF830 /* QuartzCore.framework */,
+				B37302F514281017004FF830 /* CoreLocation.framework */,
 				B301390E141EE00F00ED0C08 /* MapKit.framework */,
 				B3BC4146141988C400E70C20 /* UIKit.framework */,
 				B3BC4148141988C400E70C20 /* Foundation.framework */,
@@ -254,6 +350,8 @@
 		B3BC414C141988C400E70C20 /* SMB Festival */ = {
 			isa = PBXGroup;
 			children = (
+				B3730334142997A7004FF830 /* html */,
+				B373032814297273004FF830 /* map data */,
 				B32B145514251395006A7B55 /* plists */,
 				B32EF8271422BDBA003ED498 /* Images */,
 				B3BC4187141ADB5800E70C20 /* Festival Info */,
@@ -327,9 +425,15 @@
 				B3013911141EF51D00ED0C08 /* VolunteerController.h */,
 				B3013912141EF51D00ED0C08 /* VolunteerController.m */,
 				B3013913141EF51E00ED0C08 /* VolunteerController.xib */,
+				B373032F142990CC004FF830 /* VolunteerWebController.h */,
+				B3730330142990CD004FF830 /* VolunteerWebController.m */,
+				B3730331142990CE004FF830 /* VolunteerWebController.xib */,
 				B3013916141EF84F00ED0C08 /* GearSwapController.h */,
 				B3013917141EF85100ED0C08 /* GearSwapController.m */,
 				B3013918141EF85200ED0C08 /* GearSwapController.xib */,
+				B37302FC14281F7D004FF830 /* MapViewController.h */,
+				B37302FD14281F7D004FF830 /* MapViewController.m */,
+				B37302FE14281F7E004FF830 /* MapViewController.xib */,
 			);
 			name = "Festival Info";
 			sourceTree = "<group>";
@@ -348,6 +452,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B37303261428418F004FF830 /* PBXTargetDependency */,
 			);
 			name = "SMB Festival";
 			productName = "SMB Festival";
@@ -379,6 +484,7 @@
 		B3BC4139141988C300E70C20 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0410;
 				ORGANIZATIONNAME = "Ideas for Stuff";
 			};
 			buildConfigurationList = B3BC413C141988C300E70C20 /* Build configuration list for PBXProject "SMB Festival" */;
@@ -391,6 +497,12 @@
 			mainGroup = B3BC4137141988C300E70C20;
 			productRefGroup = B3BC4143141988C300E70C20 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B373030F1428417B004FF830 /* Products */;
+					ProjectRef = B373030E1428417B004FF830 /* MapView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B3BC4141141988C300E70C20 /* SMB Festival */,
@@ -398,6 +510,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B373031F1428417C004FF830 /* libMapView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMapView.a;
+			remoteRef = B373031E1428417C004FF830 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B37303211428417C004FF830 /* MapViewTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MapViewTests.octest;
+			remoteRef = B37303201428417C004FF830 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B37303231428417C004FF830 /* RM Unit Tests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "RM Unit Tests.app";
+			remoteRef = B37303221428417C004FF830 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B3BC4140141988C300E70C20 /* Resources */ = {
@@ -434,6 +570,14 @@
 				B3DAB00A14256EED0037CED0 /* disclosure-icon@2x.png in Resources */,
 				B3DAB010142575FC0037CED0 /* ScheduleDetailController.xib in Resources */,
 				B37302CF1426D6E0004FF830 /* MapDetailController.xib in Resources */,
+				B373030014281F7E004FF830 /* MapViewController.xib in Resources */,
+				B3730333142990D1004FF830 /* VolunteerWebController.xib in Resources */,
+				B3152AA614299B3500951B23 /* volunteer.html in Resources */,
+				B3152AAC14299DE400951B23 /* tiles.mbtiles in Resources */,
+				B3152AB7142AE64200951B23 /* greenButton.png in Resources */,
+				B3152AB8142AE64200951B23 /* greenButton@2x.png in Resources */,
+				B3152ABB142AE65400951B23 /* yellowButton.png in Resources */,
+				B3152ABC142AE65400951B23 /* yellowButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +628,8 @@
 				B3DAB00F142575FC0037CED0 /* ScheduleDetailController.m in Sources */,
 				B37302C91426D23B004FF830 /* FestivalAnnotation.m in Sources */,
 				B37302CE1426D6E0004FF830 /* MapDetailController.m in Sources */,
+				B37302FF14281F7E004FF830 /* MapViewController.m in Sources */,
+				B3730332142990D1004FF830 /* VolunteerWebController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +644,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B37303261428418F004FF830 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MapView;
+			targetProxy = B37303251428418F004FF830 /* PBXContainerItemProxy */;
+		};
 		B3BC4167141988C400E70C20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B3BC4141141988C300E70C20 /* SMB Festival */;
@@ -581,8 +732,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMB Festival/SMB Festival-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GENERATE_PROFILING_CODE = NO;
+				"HEADER_SEARCH_PATHS[arch=*]" = "../route-me/MapView/**";
 				INFOPLIST_FILE = "SMB Festival/SMB Festival-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../route-me/MapView/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -592,8 +747,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMB Festival/SMB Festival-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GENERATE_PROFILING_CODE = NO;
+				"HEADER_SEARCH_PATHS[arch=*]" = "../route-me/MapView/**";
 				INFOPLIST_FILE = "SMB Festival/SMB Festival-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../route-me/MapView/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

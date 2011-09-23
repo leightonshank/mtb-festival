@@ -9,12 +9,44 @@
 #import <UIKit/UIKit.h>
 #import "FestivalInfoViewController.h"
 #import "RMMapView.h"
+#import "RMMBTilesTileSource.h"
+//#import "RMOpenCycleMapSource.h"
+//#import "RMOpenStreetMapSource.h"
+#import "RMCloudMadeMapSource.h"
+#import "RMYahooMapSource.h"
 
-@interface MapViewController : FestivalInfoViewController <RMMapViewDelegate> {
+@interface MapViewController : FestivalInfoViewController 
+<RMMapViewDelegate, CLLocationManagerDelegate> {
     RMMapView *mapView;
+    RMMBTilesTileSource *offlineCycleSource;
+    RMCloudMadeMapSource *onlineCycleSource;
+    RMYahooMapSource *onlineStreetSource;
+    
+    UIToolbar *toolbar;
+    
+    CLLocationCoordinate2D mapCenter;
+    CLLocationManager *locationManager;
+    CLLocation *position;
+    
+    UIActivityIndicatorView *gpsIndicator;
 }
 
 @property (nonatomic,retain) IBOutlet RMMapView *mapView;
+@property (nonatomic,retain) RMMBTilesTileSource *offlineCycleSource;
+@property (nonatomic,retain) RMCloudMadeMapSource *onlineCycleSource;
+@property (nonatomic,retain) RMYahooMapSource *onlineStreetSource;
+@property (nonatomic,retain) IBOutlet UIToolbar *toolbar;
+@property (nonatomic,retain) CLLocationManager *locationManager;
+@property (nonatomic,retain) CLLocation *position;
+@property (nonatomic,retain) IBOutlet UIActivityIndicatorView *gpsIndicator;
+
+- (IBAction)changeMapSource:(id)sender;
+- (IBAction)zoomIn:(id)sender;
+- (IBAction)zoomOut:(id)sender;
+- (IBAction)centerMap:(id)sender;
+- (IBAction)showPosition:(id)sender;
+
+- (void) updateMapSource:(id <RMTileSource>)source withMinZoom:(float)minZoom maxZoom:(float)maxZoom startingZoom:(float)startingZoom mapCenter:(CLLocationCoordinate2D)center;
 
 
 @end

@@ -12,15 +12,15 @@
 #define kStartingLon   -79.149274
 #define kStartingZoom   13.0f
 
-#define kOfflineCycleSourceSegment  0
-#define kOnlineCycleSourceSegment   1
-#define kOnlineStreetSourceSegment  2
+#define kOnlineCycleSourceSegment   0
+#define kOnlineStreetSourceSegment  1
 
 @implementation MapViewController
 @synthesize mapView, toolbar;
 @synthesize offlineCycleSource, onlineCycleSource, onlineStreetSource;
 @synthesize locationManager,position;
 @synthesize gpsIndicator;
+@synthesize offlineMapSourceController;
 
 - (void) dealloc {
     [super dealloc];
@@ -31,6 +31,7 @@
     [toolbar release];
     [locationManager release];
     [gpsIndicator release];
+    [offlineMapSourceController release];
 }
 
 - (RMMBTilesTileSource *) loadOfflineCycleSource {    // setup the MBTiles data source (default)
@@ -123,10 +124,6 @@
     UISegmentedControl *control = (UISegmentedControl *) sender;
     NSLog(@"s==> selectedSegmentIndex: %d",control.selectedSegmentIndex);
     switch (control.selectedSegmentIndex) {
-        case kOfflineCycleSourceSegment:
-            NSLog(@"===> offline-cycle");
-            [self updateToOfflineCycleSource];
-            break;
         case kOnlineCycleSourceSegment:
             NSLog(@"===> online-cycle");
             [self updateToOnlineCycleSource];
@@ -160,6 +157,19 @@
     if (position != nil) {
         [mapView moveToLatLong:position.coordinate];
     }
+}
+
+- (IBAction)showOfflineSources:(id)sender {
+    NSLog(@"switching to offline source view");
+    if (offlineMapSourceController == nil) {
+        OfflineMapSourceController *offline = [[OfflineMapSourceController alloc] initWithNibName:@"OfflineMapSourceController" bundle:nil];
+        self.offlineMapSourceController = offline;
+        [offline release];
+    }
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:offlineMapSourceController];
+    nav.navigationBar.tintColor = [UIColor colorWithRed:247.0/255.0 green:147.0/255.0 blue:30.0/255.0 alpha:1.0];
+    [self presentModalViewController:nav animated:YES];
+    [nav release];
 }
 
 #pragma mark - housekeeping
@@ -213,7 +223,7 @@
     // Init the map contents
     [[[RMMapContents alloc] initWithView:mapView] autorelease];
     self.mapView.contents.mapCenter = mapCenter;
-    [self updateToOfflineCycleSource];
+    [self updateToOnlineCycleSource];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -236,6 +246,7 @@
     self.toolbar = nil;
     self.locationManager = nil;
     self.gpsIndicator = nil;
+    self.offlineMapSourceController = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

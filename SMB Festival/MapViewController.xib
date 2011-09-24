@@ -70,7 +70,7 @@
 						<string key="NSFrame">{{10, 10}, {36, 36}}</string>
 						<reference key="NSSuperview" ref="862448336"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="223466346"/>
+						<reference key="NSNextKeyView" ref="377566449"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="341579609">
 							<int key="NSColorSpace">3</int>
@@ -152,7 +152,7 @@
 						<string key="NSFrame">{{10, 133}, {36, 36}}</string>
 						<reference key="NSSuperview" ref="862448336"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="377566449"/>
+						<reference key="NSNextKeyView" ref="1029851548"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<reference key="IBUIBackgroundColor" ref="341579609"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -175,7 +175,7 @@
 						<string key="NSFrame">{{290, 10}, {20, 20}}</string>
 						<reference key="NSSuperview" ref="862448336"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1029851548"/>
+						<reference key="NSNextKeyView" ref="223466346"/>
 						<string key="NSReuseIdentifierKey">_NS:824</string>
 						<reference key="IBUIBackgroundColor" ref="341579609"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -191,7 +191,7 @@
 							<object class="IBUISegmentedControl" id="577366790">
 								<reference key="NSNextResponder" ref="1029851548"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{38, 8}, {245, 30}}</string>
+								<string key="NSFrame">{{6, 8}, {227, 30}}</string>
 								<reference key="NSSuperview" ref="1029851548"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -199,11 +199,10 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBSegmentControlStyle">2</int>
-								<int key="IBNumberOfSegments">3</int>
+								<int key="IBNumberOfSegments">2</int>
 								<int key="IBSelectedSegmentIndex">0</int>
 								<object class="NSArray" key="IBSegmentTitles">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>Topo (local)</string>
 									<string>Topo</string>
 									<string>Street</string>
 								</object>
@@ -211,11 +210,9 @@
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<real value="0.0"/>
 									<real value="0.0"/>
-									<real value="0.0"/>
 								</object>
 								<object class="NSMutableArray" key="IBSegmentEnabledStates">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<boolean value="YES"/>
 									<boolean value="YES"/>
 									<boolean value="YES"/>
 								</object>
@@ -223,12 +220,10 @@
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<string>{0, 0}</string>
 									<string>{0, 0}</string>
-									<string>{0, 0}</string>
 								</object>
 								<object class="NSMutableArray" key="IBSegmentImages">
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<object class="NSNull" id="4"/>
-									<reference ref="4"/>
 									<reference ref="4"/>
 								</object>
 							</object>
@@ -243,11 +238,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSMutableArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIBarButtonItem" id="778654233">
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIToolbar" ref="1029851548"/>
-								<int key="IBUISystemItemIdentifier">5</int>
-							</object>
 							<object class="IBUIBarButtonItem" id="553540931">
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUICustomView" ref="577366790"/>
@@ -257,6 +247,12 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUIToolbar" ref="1029851548"/>
 								<int key="IBUISystemItemIdentifier">5</int>
+							</object>
+							<object class="IBUIBarButtonItem" id="1009816147">
+								<string key="IBUITitle">D</string>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIStyle">1</int>
+								<reference key="IBUIToolbar" ref="1029851548"/>
 							</object>
 						</object>
 					</object>
@@ -354,6 +350,14 @@
 					</object>
 					<int key="connectionID">26</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">showOfflineSources:</string>
+						<reference key="source" ref="1009816147"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">29</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -404,8 +408,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="553540931"/>
-							<reference ref="778654233"/>
 							<reference ref="724673812"/>
+							<reference ref="1009816147"/>
 						</object>
 						<reference key="parent" ref="862448336"/>
 					</object>
@@ -422,11 +426,6 @@
 						<int key="objectID">10</int>
 						<reference key="object" ref="577366790"/>
 						<reference key="parent" ref="553540931"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">12</int>
-						<reference key="object" ref="778654233"/>
-						<reference key="parent" ref="1029851548"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">13</int>
@@ -459,6 +458,11 @@
 						<reference key="parent" ref="862448336"/>
 						<string key="objectName">Gray Activity Indicator</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">27</int>
+						<reference key="object" ref="1009816147"/>
+						<reference key="parent" ref="1029851548"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -471,13 +475,13 @@
 					<string>-2.IBPluginDependency</string>
 					<string>10.IBPluginDependency</string>
 					<string>11.IBPluginDependency</string>
-					<string>12.IBPluginDependency</string>
 					<string>13.IBPluginDependency</string>
 					<string>14.IBPluginDependency</string>
 					<string>15.IBPluginDependency</string>
 					<string>16.IBPluginDependency</string>
 					<string>17.IBPluginDependency</string>
 					<string>23.IBPluginDependency</string>
+					<string>27.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
 					<string>6.CustomClassName</string>
 					<string>6.IBPluginDependency</string>
@@ -516,7 +520,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">26</int>
+			<int key="maxID">30</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -538,12 +542,14 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>centerMap:</string>
 							<string>changeMapSource:</string>
+							<string>showOfflineSources:</string>
 							<string>showPosition:</string>
 							<string>zoomIn:</string>
 							<string>zoomOut:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -557,6 +563,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>centerMap:</string>
 							<string>changeMapSource:</string>
+							<string>showOfflineSources:</string>
 							<string>showPosition:</string>
 							<string>zoomIn:</string>
 							<string>zoomOut:</string>
@@ -569,6 +576,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">changeMapSource:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">showOfflineSources:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

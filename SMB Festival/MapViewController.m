@@ -7,24 +7,34 @@
 //
 
 #import "MapViewController.h"
+#import "MKMapView+ZoomLevel.h"
+
+#define kDataFilename @"offline-sources.plist"
 
 #define kStartingLat    38.352906
 #define kStartingLon   -79.149274
-#define kStartingZoom   13.0f
+#define kRouteMeStartingZoom    13.0f
 
-#define kOnlineCycleSourceSegment   0
-#define kOnlineStreetSourceSegment  1
+#define kMapKitStartingZoom     12
+#define kMapKitMinZoomLevel     1
+#define kMapKitMaxZoomLevel     18
+
+#define kMapKitSource             0
+#define kRouteMeOpenCycleSource   1
+
+#define kOfflineTopoSource   0
 
 @implementation MapViewController
-@synthesize mapView, toolbar;
+@synthesize rmMapView, toolbar;
 @synthesize offlineCycleSource, onlineCycleSource, onlineStreetSource;
 @synthesize locationManager,position;
 @synthesize gpsIndicator;
 @synthesize offlineMapSourceController;
+@synthesize mkMapView;
 
 - (void) dealloc {
     [super dealloc];
-    [mapView release];
+    [rmMapView release];
     [offlineCycleSource release];
     [onlineCycleSource release];
     [onlineStreetSource release];
@@ -32,10 +42,15 @@
     [locationManager release];
     [gpsIndicator release];
     [offlineMapSourceController release];
+    [mkMapView release];
 }
 
-- (RMMBTilesTileSource *) loadOfflineCycleSource {    // setup the MBTiles data source (default)
-    NSURL *tilesURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"tiles" ofType:@"mbtiles"]];
+- (RMMBTilesTileSource *) loadOfflineCycleSource:(NSString *)filename {    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filepath = [documentsDirectory stringByAppendingPathComponent:filename];
+    
+    NSURL *tilesURL = [NSURL fileURLWithPath:filepath];
     RMMBTilesTileSource *source = [[[RMMBTilesTileSource alloc] initWithTileSetURL:tilesURL] autorelease];
     return source;
 }
@@ -46,40 +61,42 @@
     return source;
 }
 
+/*
 - (RMYahooMapSource *) loadOnlineStreetSource {
     //RMOpenStreetMapSource *source = [[RMOpenStreetMapSource alloc] init];
     //RMCloudMadeMapSource *source = [[RMCloudMadeMapSource alloc] initWithAccessKey:@"cbfee0d2292d4341a9f0fa945be4ccdc" styleNumber:1];
     RMYahooMapSource *source = [[RMYahooMapSource alloc] init];
     return source;
 }
+ */
 
-- (void) updateMapSource:(id <RMTileSource>)source withMinZoom:(float)minZoom maxZoom:(float)maxZoom startingZoom:(float)startingZoom mapCenter:(CLLocationCoordinate2D)center 
+- (void) updateRMMapSource:(id <RMTileSource>)source withMinZoom:(float)minZoom maxZoom:(float)maxZoom startingZoom:(float)startingZoom mapCenter:(CLLocationCoordinate2D)center 
 {
-    mapView.contents.zoom = startingZoom;
-    mapView.contents.mapCenter = center;
+    rmMapView.contents.zoom = startingZoom;
+    rmMapView.contents.mapCenter = center;
     
-    if (minZoom < mapView.contents.tileSource.minZoom) {
+    if (minZoom < rmMapView.contents.tileSource.minZoom) {
         NSLog(@"===== Scenario 1: load source then set zoom");
-        mapView.contents.tileSource = source;
+        rmMapView.contents.tileSource = source;
         
-        mapView.contents.minZoom = minZoom;
-        mapView.contents.maxZoom = maxZoom;
+        rmMapView.contents.minZoom = minZoom;
+        rmMapView.contents.maxZoom = maxZoom;
     }
     else {
         NSLog(@"===== Scenario 2: set zoom then load source");
-        mapView.contents.minZoom = minZoom;
-        mapView.contents.maxZoom = maxZoom;
+        rmMapView.contents.minZoom = minZoom;
+        rmMapView.contents.maxZoom = maxZoom;
         
-        mapView.contents.tileSource = source;
+        rmMapView.contents.tileSource = source;
     }
     
-    [mapView.contents moveToLatLong:center];
+    [rmMapView.contents moveToLatLong:center];
 }
 
-- (void) updateToOfflineCycleSource {
-    if (offlineCycleSource == nil) {
-        self.offlineCycleSource = [self loadOfflineCycleSource];
-    }
+- (void) updateToOfflineCycleSource:(NSString *)filename {
+    //if (offlineCycleSource == nil) {
+        self.offlineCycleSource = [self loadOfflineCycleSource:filename];
+    //}
     /*
      * set the max/min zoom ranges.  route-me uses a hack for the retina display where it
      * shows the next higher zoom level tiles for a given zoom level (e.g. at zoom level 15
@@ -93,7 +110,7 @@
      */
     float curMaxZoom = self.offlineCycleSource.maxZoom;
     float curMinZoom = self.offlineCycleSource.minZoom;
-    float curStartingZoom = kStartingZoom;
+    float curStartingZoom = kRouteMeStartingZoom;
     
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2){
         NSLog(@"Retina Display detected!  Adjusting zoom.");
@@ -101,22 +118,58 @@
         curStartingZoom--;
     }
     
-    [self updateMapSource:offlineCycleSource withMinZoom:curMinZoom maxZoom:curMaxZoom startingZoom:curStartingZoom mapCenter:mapView.contents.mapCenter];
+    [self updateRMMapSource:offlineCycleSource withMinZoom:curMinZoom maxZoom:curMaxZoom startingZoom:curStartingZoom mapCenter:rmMapView.contents.mapCenter];
 }
 
 - (void) updateToOnlineCycleSource {
     if (onlineCycleSource == nil) {
         self.onlineCycleSource = [self loadOnlineCycleSource];
     }
-    [self updateMapSource:onlineCycleSource withMinZoom:onlineCycleSource.minZoom maxZoom:onlineCycleSource.maxZoom startingZoom:kStartingZoom mapCenter:mapView.contents.mapCenter];
+    [self updateRMMapSource:onlineCycleSource withMinZoom:onlineCycleSource.minZoom maxZoom:onlineCycleSource.maxZoom startingZoom:kRouteMeStartingZoom mapCenter:rmMapView.contents.mapCenter];
 }
 
+/*
 - (void) updateToOnlineStreetSource {
     if (onlineStreetSource == nil) {
         self.onlineStreetSource = [self loadOnlineStreetSource];
     }
-    [self updateMapSource:onlineStreetSource withMinZoom:onlineStreetSource.minZoom maxZoom:onlineStreetSource.maxZoom startingZoom:kStartingZoom mapCenter:mapView.contents.mapCenter];
+    [self updateRMMapSource:onlineStreetSource withMinZoom:onlineStreetSource.minZoom maxZoom:onlineStreetSource.maxZoom startingZoom:kRouteMeStartingZoom mapCenter:rmMapView.contents.mapCenter];
 }
+*/
+
+- (void) updateToMapKitSource {
+
+}
+
+- (NSString *) filenameForEnabledOfflineSourceOfType:(NSInteger) type {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filepath = [documentsDirectory stringByAppendingPathComponent:kDataFilename];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filepath]) {
+        NSArray *array = [[NSArray alloc] initWithContentsOfFile:filepath];
+        NSArray *sources = [[array objectAtIndex:type] objectForKey:@"Maps"];
+ 
+        
+        NSString *filename = @"";
+        
+        for (int ii=0; ii < [sources count]; ii++) {
+            NSDictionary *src = [sources objectAtIndex:ii];
+            bool enabled = [[src objectForKey:@"Enabled"] boolValue];
+            if (enabled) {
+                filename = [[NSString alloc] initWithString:[src objectForKey:@"Filename"]];
+            //    filename = @"";
+            }
+        }
+        
+        [array release];
+        return filename;
+    }
+
+    return @"";
+}
+
 
 #pragma mark - IBAction methods
 
@@ -124,38 +177,99 @@
     UISegmentedControl *control = (UISegmentedControl *) sender;
     NSLog(@"s==> selectedSegmentIndex: %d",control.selectedSegmentIndex);
     switch (control.selectedSegmentIndex) {
-        case kOnlineCycleSourceSegment:
+        case kRouteMeOpenCycleSource:
             NSLog(@"===> online-cycle");
-            [self updateToOnlineCycleSource];
+            mkMapView.hidden = YES;
+            rmMapView.hidden = NO;
+            currentSource = kRouteMeOpenCycleSource;
+            //check and see if one of the offline sources is enabled
+            NSString *srcFilename = [self filenameForEnabledOfflineSourceOfType:kOfflineTopoSource];
+            if ([srcFilename length] > 0) {
+                [self updateToOfflineCycleSource:srcFilename];
+            }
+            else {
+                // otherwise load the online source
+                [self updateToOnlineCycleSource];
+            }
             break;
-        case kOnlineStreetSourceSegment:
-            NSLog(@"===> online-street");
-            [self updateToOnlineStreetSource];
+        case kMapKitSource:
+            //NSLog(@"===> online-street");
+            //[self updateToOnlineStreetSource];
+            NSLog(@"mapkit source");
+            rmMapView.hidden = YES;
+            mkMapView.hidden = NO;
+            currentSource = kMapKitSource;
+            [self updateToMapKitSource];
             break;
     }
 }
 
 - (IBAction)zoomIn:(id)sender {
-    if (mapView.contents.zoom < mapView.contents.maxZoom) {
-        CGPoint center = CGPointMake(mapView.frame.size.width/2, mapView.frame.size.height/2);
-        [mapView zoomInToNextNativeZoomAt:center animated:YES];
+    switch (currentSource) {
+        case kRouteMeOpenCycleSource:
+            if (rmMapView.contents.zoom < rmMapView.contents.maxZoom) {
+                CGPoint center = CGPointMake(rmMapView.frame.size.width/2, rmMapView.frame.size.height/2);
+                [rmMapView zoomInToNextNativeZoomAt:center animated:YES];
+            }
+            break;
+        case kMapKitSource:
+            if (currentMapKitZoomLevel < kMapKitMaxZoomLevel) {
+                currentMapKitZoomLevel++;
+                [mkMapView setCenterCoordinate:mkMapView.region.center zoomLevel:currentMapKitZoomLevel animated:YES];
+            }
+            break;
+        default:
+            break;
     }
+
 }
 
 - (IBAction)zoomOut:(id)sender {
-    if (mapView.contents.zoom > mapView.contents.minZoom) {
-        CGPoint center = CGPointMake(mapView.frame.size.width/2, mapView.frame.size.height/2);
-        [mapView zoomOutToNextNativeZoomAt:center animated:YES];
+    switch (currentSource) {
+        case kRouteMeOpenCycleSource:
+            if (rmMapView.contents.zoom > rmMapView.contents.minZoom) {
+                CGPoint center = CGPointMake(rmMapView.frame.size.width/2, rmMapView.frame.size.height/2);
+                [rmMapView zoomOutToNextNativeZoomAt:center animated:YES];
+            }
+            break;
+        case kMapKitSource:
+            if (currentMapKitZoomLevel > kMapKitMinZoomLevel) {
+                currentMapKitZoomLevel--;
+                [mkMapView setCenterCoordinate:mkMapView.region.center zoomLevel:currentMapKitZoomLevel animated:YES];
+            }
+            break;
+        default:
+            break;
     }
+
 }
 
 - (IBAction)centerMap:(id)sender {
-    [mapView moveToLatLong:mapCenter];
+    switch (currentSource) {
+        case kRouteMeOpenCycleSource:
+            [rmMapView moveToLatLong:mapCenter];
+            break;
+        case kMapKitSource:
+            [mkMapView setCenterCoordinate:mapCenter zoomLevel:currentMapKitZoomLevel animated:YES];
+            break;
+        default:
+            break;
+    }
+    
 }
 
 - (IBAction)showPosition:(id)sender {
     if (position != nil) {
-        [mapView moveToLatLong:position.coordinate];
+        switch (currentSource) {
+            case kRouteMeOpenCycleSource:
+                [rmMapView moveToLatLong:position.coordinate];
+                break;
+            case kMapKitSource:
+                [mkMapView setCenterCoordinate:position.coordinate zoomLevel:currentMapKitZoomLevel animated:YES];
+                break;
+            default:
+                break;
+        }
     }
 }
 
@@ -170,6 +284,14 @@
     nav.navigationBar.tintColor = [UIColor colorWithRed:247.0/255.0 green:147.0/255.0 blue:30.0/255.0 alpha:1.0];
     [self presentModalViewController:nav animated:YES];
     [nav release];
+    
+    // BUMMER, THIS DOES'T WORK HERE.  IT GETS CALLED WHEN THE MODAL VIEW IS PRESENTED.  I WONDER IF THERE
+    // IS A MODAL VIEW DELEGATE OR SOME OTHER WAY WE CAN GET NOTIFIED WHEN THE MODAL VIEW DISMISSES
+    NSLog(@"++ just changed offline sources, let's check or change our source type");
+    NSString *srcFilename = [self filenameForEnabledOfflineSourceOfType:kOfflineTopoSource];
+    if ([srcFilename length] > 0) {
+        [self updateToOfflineCycleSource:srcFilename];
+    }
 }
 
 #pragma mark - housekeeping
@@ -205,10 +327,9 @@
     
     // for the route-me map view
     [RMMapView class];
-    self.mapView.delegate = self;
+    self.rmMapView.delegate = self;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
-    
     self.toolbar.tintColor = [UIColor colorWithRed:247.0/255.0 green:147.0/255.0 blue:30.0/255.0 alpha:1.0];
     
     // setup the map center
@@ -216,22 +337,27 @@
     mapCenter.longitude = kStartingLon;
     
     // setup some properties on the map
-    mapView.enableRotate = NO;
-    mapView.deceleration = NO;
+    rmMapView.enableRotate = NO;
+    rmMapView.deceleration = NO;
     
+    // Init the route-me map contents
+    [[[RMMapContents alloc] initWithView:rmMapView] autorelease];
+    self.rmMapView.contents.mapCenter = mapCenter;
+    //[self updateToOnlineCycleSource];
     
-    // Init the map contents
-    [[[RMMapContents alloc] initWithView:mapView] autorelease];
-    self.mapView.contents.mapCenter = mapCenter;
-    [self updateToOnlineCycleSource];
+    // Init the MapKit mapView (default)
+    currentMapKitZoomLevel = kMapKitStartingZoom;
+    [mkMapView setCenterCoordinate:mapCenter zoomLevel:currentMapKitZoomLevel animated:YES];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [locationManager startUpdatingLocation];
+    //mkMapView.showsUserLocation = YES;
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [locationManager stopUpdatingLocation];
+    //mkMapView.showsUserLocation = NO;
 }
 
 - (void)viewDidUnload
@@ -239,7 +365,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    self.mapView = nil;
+    self.rmMapView = nil;
     self.offlineCycleSource = nil;
     self.onlineCycleSource = nil;
     self.onlineStreetSource = nil;
@@ -247,6 +373,7 @@
     self.locationManager = nil;
     self.gpsIndicator = nil;
     self.offlineMapSourceController = nil;
+    self.mkMapView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

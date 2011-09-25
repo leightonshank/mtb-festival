@@ -13,7 +13,7 @@
 					<key>Name</key>
 					<string>Small</string>
 					<key>Filesize</key>
-					<string>36MB</string>
+					<string>38MB</string>
 					<key>URL</key>
 					<string>http://leightonshank.com/ios/smb-festival/map-topo-small.mbtiles</string>
 					<key>Filename</key>
@@ -27,46 +27,11 @@
 					<key>Name</key>
 					<string>Large</string>
 					<key>Filesize</key>
-					<string>90MB</string>
+					<string>94MB</string>
 					<key>URL</key>
 					<string>http://leightonshank.com/ios/smb-festival/map-topo-large.mbtiles</string>
 					<key>Filename</key>
 					<string>map-topo-large.mbtiles</string>
-					<key>Downloaded</key>
-					<false/>
-					<key>Enabled</key>
-					<false/>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>Label</key>
-			<string>Street Maps</string>
-			<key>Maps</key>
-			<array>
-				<dict>
-					<key>Name</key>
-					<string>Small</string>
-					<key>Filesize</key>
-					<string>32MB</string>
-					<key>URL</key>
-					<string>http://leightonshank.com/ios/smb-festival/map-street-small.mbtiles</string>
-					<key>Filename</key>
-					<string>map-large-small.mbtiles</string>
-					<key>Downloaded</key>
-					<false/>
-					<key>Enabled</key>
-					<false/>
-				</dict>
-				<dict>
-					<key>Name</key>
-					<string>Large</string>
-					<key>Filesize</key>
-					<string>87MB</string>
-					<key>URL</key>
-					<string>http://leightonshank.com/ios/smb-festival/map-street-large.mbtiles</string>
-					<key>Filename</key>
-					<string>map-street-large.mbtiles</string>
 					<key>Downloaded</key>
 					<false/>
 					<key>Enabled</key>

@@ -7,20 +7,39 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIHTTPRequest.h"
 
-@interface DownloadController : UIViewController {
+@interface DownloadController : UIViewController
+    <ASIHTTPRequestDelegate>
+{
     UIProgressView *progressView;
-    NSDictionary *source;
-    NSString *sectionLabel;
+    
+    NSIndexPath *sourceIndexPath;
+    
+    NSString *sourceLabel;
+    NSString *sourceName;
+    NSString *sourceSize;
+    NSString *sourceURL;
+    NSString *sourceFilename;
     
     UILabel *downloadName;
     UILabel *downloadSize;
+    
+    ASIHTTPRequest *theRequest;
+    
+    NSMutableArray *maplist;
 }
 
 @property (nonatomic,retain) IBOutlet UIProgressView *progressView;
-@property (nonatomic,retain) NSDictionary *source;
-@property (nonatomic,retain) NSString *sectionLabel;
+@property (nonatomic,retain) NSIndexPath *sourceIndexPath;
+@property (nonatomic,retain) NSString *sourceLabel;
+@property (nonatomic,retain) NSString *sourceName;
+@property (nonatomic,retain) NSString *sourceSize;
+@property (nonatomic,retain) NSString *sourceURL;
+@property (nonatomic,retain) NSString *sourceFilename;
 @property (nonatomic,retain) IBOutlet UILabel *downloadName;
 @property (nonatomic,retain) IBOutlet UILabel *downloadSize;
+@property (nonatomic,retain) ASIHTTPRequest *theRequest;
+@property (nonatomic,retain) NSMutableArray *maplist;
 
 @end

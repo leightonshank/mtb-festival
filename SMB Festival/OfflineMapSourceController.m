@@ -9,14 +9,18 @@
 #import "OfflineMapSourceController.h"
 #import "DownloadController.h"
 
+#define kDataFilename @"offline-sources.plist"
+
 @implementation OfflineMapSourceController
 @synthesize maplist;
 @synthesize table;
+@synthesize downloadController;
 
 - (void) dealloc {
     [super dealloc];
     [maplist release];
     [table release];
+    [downloadController release];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,6 +50,40 @@
     return [[[maplist objectAtIndex:section] objectForKey:@"Maps"] objectAtIndex:row];
 }
 
+- (NSString *)dataFilePath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:kDataFilename];
+}
+
+- (void) loadOfflineMapData {
+    NSLog(@"[loading offline map source data]");
+    NSString *filePath = [self dataFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        NSLog(@"-> read existing");
+        // data file exists, so just read it
+        NSArray *array = [[NSArray alloc] initWithContentsOfFile:filePath];
+        NSMutableArray *data = [[NSMutableArray alloc] initWithArray:array copyItems:YES];
+        self.maplist = data;
+        [data release];
+        [array release];
+    }
+    else {
+        NSLog(@"-> initialize");
+        // no data file yet, so init from the template in our resource bundle
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Maps" ofType:@"plist"];
+        NSArray *array = [[[NSDictionary alloc] initWithContentsOfFile:path] objectForKey:@"Root"];
+        NSMutableArray *data = [[NSMutableArray alloc] initWithArray:array copyItems:YES];
+        self.maplist = data;
+        [data release];
+        [array release];
+    }
+}
+
+- (void) saveOfflineMapData {
+    [maplist writeToFile:[self dataFilePath] atomically:YES];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -60,31 +98,36 @@
     self.navigationItem.rightBarButtonItem = done;
     [done release];
     
-    // load the maps
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Maps" ofType:@"plist"];
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-    self.maplist = [dict objectForKey:@"Root"];
-    [dict release];
-    
     self.table.backgroundColor = [UIColor clearColor];
+    
+    [self loadOfflineMapData];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    NSLog(@"== view will appear ==");
+    [self loadOfflineMapData];
+    [table reloadData];
+    
     NSIndexPath *indexPath = [table indexPathForSelectedRow];
-    //NSDictionary *source = [self sourceForIndexPath:indexPath];
-    
     [table deselectRowAtIndexPath:indexPath animated:YES];
-    
 }
+
+/*
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self saveOfflineMapData];
+}
+ */
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    [self.maplist release];
-    [self.table release];
+    self.maplist = nil;
+    self.table = nil;
+    self.downloadController = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -112,9 +155,23 @@
     
     NSDictionary *source = [self sourceForIndexPath:indexPath];
     cell.textLabel.text = [source objectForKey:@"Name"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Filesize %@",[source objectForKey:@"Filesize"]];
-    //set cell.imageView if downloaded
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"File size %@",[source objectForKey:@"Filesize"]];
+
     //add checkmark disclosure icon if enabled
+    bool enabled = [[source objectForKey:@"Enabled"] boolValue];
+    if (enabled) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    //set cell.imageView if downloaded
+    bool downloaded = [[source objectForKey:@"Downloaded"] boolValue];
+    if (downloaded) {
+        //cell.imageView.image = [UIImage imageNamed:@"downloaded.png"];
+    }
+    
     
     return cell;
 }
@@ -125,12 +182,64 @@
 #pragma mark - Table View Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Selected section:%d , row:%d",[indexPath section],[indexPath row]);
+
+    NSDictionary *source = [self sourceForIndexPath:indexPath];
+    bool downloaded = [[source objectForKey:@"Downloaded"] boolValue];
     
-    DownloadController *download = [[DownloadController alloc] initWithNibName:@"DownloadController" bundle:nil];
-    download.sectionLabel = [[maplist objectAtIndex:[indexPath section]] objectForKey:@"Label"];
-    download.source = [self sourceForIndexPath:indexPath];
-    
-    [self.navigationController pushViewController:download animated:YES];
+    if ( ! downloaded) {
+        // if the map hasn't been downloaded yet then just setup the download controller and download it first
+        // then it will be automatically enabled.
+        if (downloadController == nil) {
+            DownloadController *download = [[DownloadController alloc] initWithNibName:@"DownloadController" bundle:nil];
+            self.downloadController = download;
+            [download release];
+        }
+        
+        downloadController.sourceLabel = [[maplist objectAtIndex:[indexPath section]] objectForKey:@"Label"];
+        downloadController.sourceName = [source objectForKey:@"Name"];
+        downloadController.sourceSize = [source objectForKey:@"Filesize"];
+        downloadController.sourceURL = [source objectForKey:@"URL"];
+        downloadController.sourceFilename = [source objectForKey:@"Filename"];
+        downloadController.sourceIndexPath = indexPath;
+        [self.navigationController pushViewController:downloadController animated:YES];
+    }
+    else {
+        bool enabled = [[source objectForKey:@"Enabled"] boolValue];
+        // disable whichever source is enabled !!
+        NSMutableArray *sources = [[[maplist objectAtIndex:[indexPath section]] objectForKey:@"Maps"] mutableCopy];
+        for (int ii=0; ii < [sources count]; ii++) {
+            // get the source for this row
+            NSDictionary *src = [[[maplist objectAtIndex:[indexPath section]] objectForKey:@"Maps"] objectAtIndex:ii];
+            // and then make a mutable copy
+            NSMutableDictionary *newSource = [[NSMutableDictionary alloc] initWithDictionary:src];
+            
+            if (ii == [indexPath row]) {
+                // this is the row we selected so toggle the enabled value (!enabled)
+                [newSource setValue:[NSNumber numberWithBool:!enabled] forKey:@"Enabled"];
+            }
+            else {
+                // for all other rows set enabled to NO
+                [newSource setValue:[NSNumber numberWithBool:NO] forKey:@"Enabled"];
+            }
+            
+            [sources replaceObjectAtIndex:ii withObject:newSource];
+            [newSource release];
+        }
+        
+        // now that our sources is setup how we want them to be, we replace them in the "Maps" key for the section data
+        NSMutableDictionary *section = [[maplist objectAtIndex:[indexPath section]] mutableCopy];
+        [section setValue:sources forKey:@"Maps"];
+        
+        // finally we replace the section data in the maps list
+        [maplist replaceObjectAtIndex:[indexPath section] withObject:section];
+        
+        [sources release];
+        [section release];
+        
+        // save our data and pop back to the previous controller
+        [self saveOfflineMapData];
+        [table reloadData];
+    }
 }
 
 @end

@@ -8,14 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class DownloadController;
+
 @interface OfflineMapSourceController : UIViewController
     <UITableViewDelegate, UITableViewDataSource>
 {
-    NSArray *maplist;
+    NSMutableArray *maplist;
     UITableView *table;
+    
+    DownloadController *downloadController;
 }
 
-@property (nonatomic,retain) NSArray *maplist;
+@property (nonatomic,retain) NSMutableArray *maplist;
 @property (nonatomic,retain) IBOutlet UITableView *table;
+@property (nonatomic,retain) DownloadController *downloadController;
 
 @end

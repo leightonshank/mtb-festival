@@ -10,6 +10,7 @@
 
 @implementation FestivalInfoViewController
 @synthesize rowImage;
+@synthesize rowImageHighlighted;
 
 - (id)init
 {

@@ -21,6 +21,7 @@
 @synthesize sourceFilename;
 @synthesize theRequest;
 @synthesize maplist;
+@synthesize downloadDescription, sourceDescription;
 
 - (void) dealloc {
     [super dealloc];
@@ -35,6 +36,8 @@
     [sourceURL release];
     [theRequest release];
     [maplist release];
+    [downloadDescription release];
+    [sourceDescription release];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -117,6 +120,9 @@
     self.title = @"Downloading";
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
     
+    progressView.backgroundColor = [UIColor clearColor];
+    downloadDescription.backgroundColor = [UIColor clearColor];
+    
     UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelDownload)];
     self.navigationItem.leftBarButtonItem = cancel;
     [cancel release];
@@ -129,6 +135,7 @@
                               sourceLabel,sourceName];
     self.downloadSize.text = [NSString stringWithFormat:@"Total download size is %@",
                               sourceSize];
+    self.downloadDescription.text = sourceDescription;
     
     // start the download
     NSURL *url = [NSURL URLWithString:sourceURL];
@@ -160,6 +167,8 @@
     self.sourceFilename = nil;
     self.theRequest = nil;
     self.maplist = nil;
+    self.sourceDescription = nil;
+    self.downloadDescription = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

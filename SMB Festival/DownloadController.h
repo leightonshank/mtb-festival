@@ -21,9 +21,11 @@
     NSString *sourceSize;
     NSString *sourceURL;
     NSString *sourceFilename;
+    NSString *sourceDescription;
     
     UILabel *downloadName;
     UILabel *downloadSize;
+    UITextView *downloadDescription;
     
     ASIHTTPRequest *theRequest;
     
@@ -37,8 +39,10 @@
 @property (nonatomic,retain) NSString *sourceSize;
 @property (nonatomic,retain) NSString *sourceURL;
 @property (nonatomic,retain) NSString *sourceFilename;
+@property (nonatomic,retain) NSString *sourceDescription;
 @property (nonatomic,retain) IBOutlet UILabel *downloadName;
 @property (nonatomic,retain) IBOutlet UILabel *downloadSize;
+@property (nonatomic,retain) IBOutlet UITextView *downloadDescription;
 @property (nonatomic,retain) ASIHTTPRequest *theRequest;
 @property (nonatomic,retain) NSMutableArray *maplist;
 

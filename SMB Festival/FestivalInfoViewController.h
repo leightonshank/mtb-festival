@@ -10,8 +10,10 @@
 
 @interface FestivalInfoViewController : UIViewController {
     UIImage *rowImage;
+    UIImage *rowImageHighlighted;
 }
 
 @property (nonatomic,retain) UIImage *rowImage;
+@property (nonatomic,retain) UIImage *rowImageHighlighted;
 
 @end

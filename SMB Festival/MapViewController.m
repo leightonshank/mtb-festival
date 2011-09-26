@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "MKMapView+ZoomLevel.h"
+#import "CampingController.h"
 
 #define kDataFilename @"offline-sources.plist"
 
@@ -26,23 +27,34 @@
 
 @implementation MapViewController
 @synthesize rmMapView, toolbar;
-@synthesize offlineCycleSource, onlineCycleSource, onlineStreetSource;
+@synthesize offlineCycleSource, onlineCycleSource;
 @synthesize locationManager,position;
-@synthesize gpsIndicator;
 @synthesize offlineMapSourceController;
 @synthesize mkMapView;
+@synthesize mapAttribution;
+@synthesize campgroundAnnotation;
+@synthesize gpsOn, gpsOff;
 
 - (void) dealloc {
     [super dealloc];
     [rmMapView release];
     [offlineCycleSource release];
     [onlineCycleSource release];
-    [onlineStreetSource release];
     [toolbar release];
     [locationManager release];
-    [gpsIndicator release];
     [offlineMapSourceController release];
     [mkMapView release];
+    [mapAttribution release];
+    [campgroundAnnotation release];
+    [gpsOn release];
+    [gpsOff release];
+}
+
+- (void)showCampgroundDetails:(id)sender {
+    CampingController *campController = [[CampingController alloc] initWithNibName:@"CampingController" bundle:nil];
+    campController.title = @"Campground";
+    [self.navigationController pushViewController:campController animated:YES];
+    [campController release];
 }
 
 - (RMMBTilesTileSource *) loadOfflineCycleSource:(NSString *)filename {    
@@ -55,9 +67,9 @@
     return source;
 }
 
-- (RMCloudMadeMapSource *) loadOnlineCycleSource {
-    //RMOpenCycleMapSource *source = [[RMOpenCycleMapSource alloc] init];
-    RMCloudMadeMapSource *source = [[RMCloudMadeMapSource alloc] initWithAccessKey:@"cbfee0d2292d4341a9f0fa945be4ccdc" styleNumber:537];
+- (RMOpenCycleMapSource *) loadOnlineCycleSource {
+    RMOpenCycleMapSource *source = [[RMOpenCycleMapSource alloc] init];
+    //RMCloudMadeMapSource *source = [[RMCloudMadeMapSource alloc] initWithAccessKey:@"cbfee0d2292d4341a9f0fa945be4ccdc" styleNumber:537];
     return source;
 }
 
@@ -179,8 +191,11 @@
     switch (control.selectedSegmentIndex) {
         case kRouteMeOpenCycleSource:
             NSLog(@"===> online-cycle");
+            rmMapView.contents.mapCenter = mkMapView.centerCoordinate;
+            
             mkMapView.hidden = YES;
             rmMapView.hidden = NO;
+            mapAttribution.hidden = NO;
             currentSource = kRouteMeOpenCycleSource;
             //check and see if one of the offline sources is enabled
             NSString *srcFilename = [self filenameForEnabledOfflineSourceOfType:kOfflineTopoSource];
@@ -196,8 +211,11 @@
             //NSLog(@"===> online-street");
             //[self updateToOnlineStreetSource];
             NSLog(@"mapkit source");
+            mkMapView.centerCoordinate = rmMapView.contents.mapCenter;
+            
             rmMapView.hidden = YES;
             mkMapView.hidden = NO;
+            mapAttribution.hidden = YES;
             currentSource = kMapKitSource;
             [self updateToMapKitSource];
             break;
@@ -280,18 +298,12 @@
         self.offlineMapSourceController = offline;
         [offline release];
     }
+    
+    offlineMapSourceController.delegate = self;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:offlineMapSourceController];
     nav.navigationBar.tintColor = [UIColor colorWithRed:247.0/255.0 green:147.0/255.0 blue:30.0/255.0 alpha:1.0];
     [self presentModalViewController:nav animated:YES];
     [nav release];
-    
-    // BUMMER, THIS DOES'T WORK HERE.  IT GETS CALLED WHEN THE MODAL VIEW IS PRESENTED.  I WONDER IF THERE
-    // IS A MODAL VIEW DELEGATE OR SOME OTHER WAY WE CAN GET NOTIFIED WHEN THE MODAL VIEW DISMISSES
-    NSLog(@"++ just changed offline sources, let's check or change our source type");
-    NSString *srcFilename = [self filenameForEnabledOfflineSourceOfType:kOfflineTopoSource];
-    if ([srcFilename length] > 0) {
-        [self updateToOfflineCycleSource:srcFilename];
-    }
 }
 
 #pragma mark - housekeeping
@@ -343,11 +355,36 @@
     // Init the route-me map contents
     [[[RMMapContents alloc] initWithView:rmMapView] autorelease];
     self.rmMapView.contents.mapCenter = mapCenter;
-    //[self updateToOnlineCycleSource];
     
     // Init the MapKit mapView (default)
+    // setup the annotation for the campground
+    FestivalAnnotation *festivalAnnotation = [[FestivalAnnotation alloc] init];
+    self.campgroundAnnotation = festivalAnnotation;
+    [festivalAnnotation release];
+    
     currentMapKitZoomLevel = kMapKitStartingZoom;
     [mkMapView setCenterCoordinate:mapCenter zoomLevel:currentMapKitZoomLevel animated:YES];
+    
+    [self.mkMapView addAnnotation:campgroundAnnotation];
+    [self.mkMapView selectAnnotation:self.campgroundAnnotation animated:YES];
+    
+    // set the map attribution
+    RMOpenCycleMapSource *opencycle = [[RMOpenCycleMapSource alloc] init];
+    self.mapAttribution.text = [opencycle shortAttribution];
+    self.mapAttribution.hidden = YES;
+    [opencycle release];
+    
+    // init the gps indicator
+    UIImageView *gpsOnView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gps-on.png"]];
+    UIImageView *gpsOffView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gps-off.png"]];
+    self.gpsOn = gpsOnView;
+    self.gpsOff = gpsOffView;
+    [gpsOnView release];
+    [gpsOffView release];
+    
+    UIBarButtonItem *gpsIndicator = [[UIBarButtonItem alloc] initWithCustomView:gpsOff];
+    self.navigationItem.rightBarButtonItem = gpsIndicator;
+    [gpsIndicator release];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -368,12 +405,14 @@
     self.rmMapView = nil;
     self.offlineCycleSource = nil;
     self.onlineCycleSource = nil;
-    self.onlineStreetSource = nil;
     self.toolbar = nil;
     self.locationManager = nil;
-    self.gpsIndicator = nil;
     self.offlineMapSourceController = nil;
     self.mkMapView = nil;
+    self.mapAttribution = nil;
+    self.campgroundAnnotation = nil;
+    self.gpsOn = nil;
+    self.gpsOff = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -390,12 +429,14 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     self.position = newLocation;
     if (newLocation.horizontalAccuracy < 100.0f) {
-        NSLog(@"===== gps!");
-        [gpsIndicator stopAnimating];
+        UIBarButtonItem *gpsIndicator = [[UIBarButtonItem alloc] initWithCustomView:gpsOn];
+        self.navigationItem.rightBarButtonItem = gpsIndicator;
+        [gpsIndicator release];
     }
     else {
-        NSLog(@"===== no gps :(");
-        [gpsIndicator startAnimating];
+        UIBarButtonItem *gpsIndicator = [[UIBarButtonItem alloc] initWithCustomView:gpsOff];
+        self.navigationItem.rightBarButtonItem = gpsIndicator;
+        [gpsIndicator release];
     }
     
     NSLog(@"===== loc update} (%f,%f) accuracy: %f",newLocation.coordinate.latitude,
@@ -413,6 +454,60 @@
                           otherButtonTitles:nil];
     [alert show];
     [alert release];
+}
+
+#pragma mark - OfflineMapSourceDelegate methods
+-(void)didDismissOfflineMapSourceController:(OfflineMapSourceController *)controller {
+    NSLog(@"++ just changed offline sources, let's check or change our source type");
+    NSString *srcFilename = [self filenameForEnabledOfflineSourceOfType:kOfflineTopoSource];
+    if ([srcFilename length] > 0) {
+        [self updateToOfflineCycleSource:srcFilename];
+    }
+    else {
+        [self updateToOnlineCycleSource];
+    }
+    [controller dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - MKMapViewDelegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation { 
+    // if it's the user location, just return nil.
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    // try to dequeue an existing pin view first
+    static NSString* FestivalAnnotationIdentifier = @"festivalAnnotationIdentifier";
+    MKPinAnnotationView* pinView = (MKPinAnnotationView *)
+    [mkMapView dequeueReusableAnnotationViewWithIdentifier:FestivalAnnotationIdentifier];
+    if (!pinView)
+    {
+        // if an existing pin view was not available, create one
+        MKPinAnnotationView* customPinView = [[[MKPinAnnotationView alloc]
+                                               initWithAnnotation:annotation reuseIdentifier:FestivalAnnotationIdentifier] autorelease];
+        customPinView.pinColor = MKPinAnnotationColorGreen;
+        customPinView.animatesDrop = YES;
+        customPinView.canShowCallout = YES;
+        
+        // add a detail disclosure button to the callout which will open a new view controller page
+        //
+        // note: you can assign a specific call out accessory view, or as MKMapViewDelegate you can implement:
+        //  - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control;
+        //
+        UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        [rightButton addTarget:self
+                        action:@selector(showCampgroundDetails:)
+              forControlEvents:UIControlEventTouchUpInside];
+        customPinView.rightCalloutAccessoryView = rightButton;
+        
+        return customPinView;
+    }
+    else
+    {
+        pinView.annotation = annotation;
+    }
+    return pinView;
+    
 }
 
 @end

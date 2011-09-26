@@ -15,16 +15,22 @@
 #import "VolunteerController.h"
 #import "GearSwapController.h"
 #import "MapViewController.h"
+#import "FestivalInfoCell.h"
 
 @implementation FestivalInfoMainController
 
 @synthesize sections;
 @synthesize infoTable;
+@synthesize aboutController;
+@synthesize infoButton;
 
 
 - (void) dealloc {
     [super dealloc];
     [sections release];
+    [infoTable release];
+    [aboutController release];
+    [infoButton release];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,6 +48,17 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (IBAction)infoButtonPressed:(id)sender {
+    NSLog(@"info button pressed!");
+    if (aboutController == nil) {
+        AboutController *about = [[AboutController alloc] initWithNibName:@"AboutController" bundle:nil];
+        self.aboutController = about;
+        [about release];
+    }
+    [aboutController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentModalViewController:aboutController animated:YES];
 }
 
 #pragma mark - View lifecycle
@@ -63,6 +80,11 @@
 
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:247.0/255.0 green:147.0/255.0 blue:30.0/255.0 alpha:1.0];
     
+    // add an info icon to the nav bar
+    UIBarButtonItem *info = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+    self.navigationItem.rightBarButtonItem = info;
+    [info release];
+
     self.infoTable.backgroundColor = [UIColor clearColor];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
@@ -78,57 +100,51 @@
     
     // About
     GeneralInfoController *generalInfoController = [[GeneralInfoController alloc] initWithNibName:@"GeneralInfoController" bundle:nil];
-    generalInfoController.title = @"About";
-    //generalInfoController.rowImage = [UIImage imageNamed:@"image.png"];
+    generalInfoController.title = @"The Festival";
+    generalInfoController.rowImage = [UIImage imageNamed:@"festival.png"];
+    generalInfoController.rowImageHighlighted = [UIImage imageNamed:@"festival-white.png"];
     [array addObject:generalInfoController];
     [generalInfoController release];
     
     // Registration
     RegistrationController *registrationController = [[RegistrationController alloc] initWithNibName:@"RegistrationController" bundle:nil];
-    registrationController.title = @"Registration";
-    //registrationController.rowImage = [UIImage imageNamed:@"image.png"];
+    registrationController.title = @"Register";
+    registrationController.rowImage = [UIImage imageNamed:@"register.png"];
+    registrationController.rowImageHighlighted = [UIImage imageNamed:@"register-white.png"];    
     [array addObject:registrationController];
     [registrationController release];
     
     // Camping
     CampingController *campingController = [[CampingController alloc] initWithNibName:@"CampingController" bundle:nil];
     campingController.title = @"Campground";
-    //campingController.rowImage = [UIImage imageNamed:@"image.png"];
+    campingController.rowImage = [UIImage imageNamed:@"campground.png"];
+    campingController.rowImageHighlighted = [UIImage imageNamed:@"campground-white.png"];
     [array addObject:campingController];
     [campingController release];
-    
-    // Directions
-    /*
-    DirectionsController *directionsController = [[DirectionsController alloc] initWithNibName:@"DirectionsController" bundle:nil];
-    directionsController.title = @"Directions";
-    //directionsController.rowImage = [UIImage imageNamed:@"image.png"];
-    [array addObject:directionsController];
-    [directionsController release];
-     */
     
     //MapView
     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
     mapViewController.title = @"Maps";
-    //mapViewController.rowImage = [UIImage imageNamed:@"image.png"];
+    mapViewController.rowImage = [UIImage imageNamed:@"maps.png"];
+    mapViewController.rowImageHighlighted = [UIImage imageNamed:@"maps-white.png"];
     [array addObject:mapViewController];
     [mapViewController release];
     
     // Volunteers
     VolunteerController *volunteersController = [[VolunteerController alloc] initWithNibName:@"VolunteerController" bundle:nil];
     volunteersController.title = @"Volunteers";
-    //volunteersController.rowImage = [UIImage imageNamed:@"image.png"];
+    volunteersController.rowImage = [UIImage imageNamed:@"volunteers.png"];
+    volunteersController.rowImageHighlighted = [UIImage imageNamed:@"volunteers-white.png"];
     [array addObject:volunteersController];
     [volunteersController release];
     
     // Gear Swap Controller
     GearSwapController *gearSwapController = [[GearSwapController alloc] initWithNibName:@"GearSwapController" bundle:nil];
     gearSwapController.title = @"Gear Swap";
-    //gearSwapController.rowImage = [UIImage imageNamed:@"image.png"];
+    gearSwapController.rowImage = [UIImage imageNamed:@"gearswap.png"];
+    gearSwapController.rowImageHighlighted = [UIImage imageNamed:@"gearswap-white.png"];
     [array addObject:gearSwapController];
     [gearSwapController release];
-    
-    
-    
     
     self.sections = array;
     [array release];
@@ -147,6 +163,9 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.sections = nil;
+    self.infoTable = nil;
+    self.aboutController = nil;
+    self.infoButton = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -162,18 +181,23 @@
     return [self.sections count];
 }
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *FestivalInfoCell = @"FestivalInfoCell";
+    static NSString *FestivalInfoCellIdentifier = @"FestivalInfoCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FestivalInfoCell];
+    FestivalInfoCell *cell = (FestivalInfoCell *)[tableView dequeueReusableCellWithIdentifier:FestivalInfoCellIdentifier];
     
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FestivalInfoCell] autorelease];
+        cell = [[[FestivalInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FestivalInfoCellIdentifier] autorelease];
     }
     
     NSUInteger row = [indexPath row];
     FestivalInfoViewController *controller = [sections objectAtIndex:row];
     cell.textLabel.text = controller.title;
-    //cell.imageView.image = controller.rowImage;
+    if (controller.rowImage != nil) {
+        cell.imageView.image = controller.rowImage;
+    }
+    if (controller.rowImageHighlighted != nil) {
+        cell.imageView.highlightedImage = controller.rowImageHighlighted;
+    }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;

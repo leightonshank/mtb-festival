@@ -7,15 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AboutController.h"
 
 @interface FestivalInfoMainController : UIViewController
     <UITableViewDataSource, UITableViewDelegate>
 {
     NSArray *sections;
     UITableView *infoTable;
+    
+    AboutController *aboutController;
+    UIButton *infoButton;
 }
 
 @property (nonatomic,retain) NSArray *sections;
 @property (nonatomic,retain) IBOutlet UITableView *infoTable;
+@property (nonatomic,retain) AboutController *aboutController;
+@property (nonatomic,retain) IBOutlet UIButton *infoButton;
+
+- (IBAction)infoButtonPressed:(id)sender;
 
 @end

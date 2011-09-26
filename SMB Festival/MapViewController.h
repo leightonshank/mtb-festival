@@ -11,19 +11,19 @@
 #import "FestivalInfoViewController.h"
 #import "RMMapView.h"
 #import "RMMBTilesTileSource.h"
-//#import "RMOpenCycleMapSource.h"
+#import "RMOpenCycleMapSource.h"
 //#import "RMOpenStreetMapSource.h"
-#import "RMCloudMadeMapSource.h"
+//#import "RMCloudMadeMapSource.h"
 #import "RMYahooMapSource.h"
 #import "OfflineMapSourceController.h"
+#import "FestivalAnnotation.h"
 
 @interface MapViewController : FestivalInfoViewController 
-<RMMapViewDelegate, CLLocationManagerDelegate,MKMapViewDelegate>
+<RMMapViewDelegate, CLLocationManagerDelegate,MKMapViewDelegate,OfflineMapSourceDelegate>
 {
     RMMapView *rmMapView;
     RMMBTilesTileSource *offlineCycleSource;
-    RMCloudMadeMapSource *onlineCycleSource;
-    RMYahooMapSource *onlineStreetSource;
+    RMOpenCycleMapSource *onlineCycleSource;
     
     MKMapView *mkMapView;
     
@@ -33,24 +33,31 @@
     CLLocationManager *locationManager;
     CLLocation *position;
     
-    UIActivityIndicatorView *gpsIndicator;
-    
     OfflineMapSourceController *offlineMapSourceController;
     
     NSInteger currentSource;
     NSInteger currentMapKitZoomLevel;
+    
+    UILabel *mapAttribution;
+    
+    FestivalAnnotation *campgroundAnnotation;
+    
+    UIImageView *gpsOn;
+    UIImageView *gpsOff;
 }
 
 @property (nonatomic,retain) IBOutlet RMMapView *rmMapView;
 @property (nonatomic,retain) RMMBTilesTileSource *offlineCycleSource;
-@property (nonatomic,retain) RMCloudMadeMapSource *onlineCycleSource;
-@property (nonatomic,retain) RMYahooMapSource *onlineStreetSource;
+@property (nonatomic,retain) RMOpenCycleMapSource *onlineCycleSource;
 @property (nonatomic,retain) IBOutlet UIToolbar *toolbar;
 @property (nonatomic,retain) CLLocationManager *locationManager;
 @property (nonatomic,retain) CLLocation *position;
-@property (nonatomic,retain) IBOutlet UIActivityIndicatorView *gpsIndicator;
 @property (nonatomic,retain) OfflineMapSourceController *offlineMapSourceController;
 @property (nonatomic,retain) IBOutlet MKMapView *mkMapView;
+@property (nonatomic,retain) IBOutlet UILabel *mapAttribution;
+@property (nonatomic,retain) FestivalAnnotation *campgroundAnnotation;
+@property (nonatomic,retain) UIImageView *gpsOn;
+@property (nonatomic,retain) UIImageView *gpsOff;
 
 - (IBAction)changeMapSource:(id)sender;
 - (IBAction)zoomIn:(id)sender;

@@ -22,6 +22,8 @@
 					<false/>
 					<key>Enabled</key>
 					<false/>
+					<key>Description</key>
+					<string>A smaller map size containing maps of the area around the campground at a medium zoom level.</string>
 				</dict>
 				<dict>
 					<key>Name</key>
@@ -36,6 +38,8 @@
 					<false/>
 					<key>Enabled</key>
 					<false/>
+					<key>Description</key>
+					<string>A larger map containing maps of the area around the campground at a high zoom level.</string>
 				</dict>
 			</array>
 		</dict>

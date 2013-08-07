@@ -15,7 +15,7 @@
 					<key>Filesize</key>
 					<string>38MB</string>
 					<key>URL</key>
-					<string>http://leightonshank.com/ios/smb-festival/map-topo-small.mbtiles</string>
+					<string>http://leightonshank.com/ios/shenandoah-mountain-bike-festival/mapsources/map-topo-small.mbtiles</string>
 					<key>Filename</key>
 					<string>map-topo-small.mbtiles</string>
 					<key>Downloaded</key>
@@ -31,7 +31,7 @@
 					<key>Filesize</key>
 					<string>94MB</string>
 					<key>URL</key>
-					<string>http://leightonshank.com/ios/smb-festival/map-topo-large.mbtiles</string>
+					<string>http://leightonshank.com/ios/shenandoah-mountain-bike-festival/mapsources/map-topo-large.mbtiles</string>
 					<key>Filename</key>
 					<string>map-topo-large.mbtiles</string>
 					<key>Downloaded</key>

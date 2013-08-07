@@ -28,7 +28,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    NSLog(@"custom layoutSubviews running");
+    //NSLog(@"custom layoutSubviews running");
     self.imageView.contentMode = UIViewContentModeCenter;
     self.imageView.bounds = CGRectMake(11.0, 11.0, 44.0, 22.0);
     self.imageView.frame = CGRectMake(11.0, 11.0, 44.0, 22.0);

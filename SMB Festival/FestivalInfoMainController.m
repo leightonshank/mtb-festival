@@ -51,7 +51,7 @@
 }
 
 - (IBAction)infoButtonPressed:(id)sender {
-    NSLog(@"info button pressed!");
+    //NSLog(@"info button pressed!");
     if (aboutController == nil) {
         AboutController *about = [[AboutController alloc] initWithNibName:@"AboutController" bundle:nil];
         self.aboutController = about;
@@ -176,7 +176,7 @@
 
 #pragma mark Table View Data Source Methods
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%d",[self.sections count]);
+    //NSLog(@"%d",[self.sections count]);
     
     return [self.sections count];
 }

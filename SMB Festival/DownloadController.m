@@ -76,11 +76,12 @@
     else {
         // no data file yet, so init from the template in our resource bundle
         NSString *path = [[NSBundle mainBundle] pathForResource:@"Maps" ofType:@"plist"];
-        NSArray *array = [[[NSDictionary alloc] initWithContentsOfFile:path] objectForKey:@"Root"];
+        NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+        NSArray *array = [dict objectForKey:@"Root"];
         NSMutableArray *data = [[NSMutableArray alloc] initWithArray:array copyItems:YES];
         self.maplist = data;
         [data release];
-        [array release];
+        [dict release];
     }
 }
 
@@ -89,7 +90,7 @@
 }
 
 - (void)cancelDownload {
-    NSLog(@"download cancelled");
+    //NSLog(@"download cancelled");
     // save the tmp file and cancel the download
     NSString *tmpPath = [theRequest temporaryFileDownloadPath];
     [theRequest clearDelegatesAndCancel];
@@ -131,7 +132,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.downloadName.text = [NSString stringWithFormat:@"Downloading %@ - %@",
+    self.downloadName.text = [NSString stringWithFormat:@"%@ - %@",
                               sourceLabel,sourceName];
     self.downloadSize.text = [NSString stringWithFormat:@"Total download size is %@",
                               sourceSize];

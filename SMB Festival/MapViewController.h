@@ -18,6 +18,8 @@
 #import "OfflineMapSourceController.h"
 #import "FestivalAnnotation.h"
 
+@class  RMMarker;
+
 @interface MapViewController : FestivalInfoViewController 
 <RMMapViewDelegate, CLLocationManagerDelegate,MKMapViewDelegate,OfflineMapSourceDelegate>
 {
@@ -44,6 +46,9 @@
     
     UIImageView *gpsOn;
     UIImageView *gpsOff;
+    
+    RMMarker *campgroundMarker;
+    RMMarker *locationMarker;
 }
 
 @property (nonatomic,retain) IBOutlet RMMapView *rmMapView;
@@ -58,6 +63,8 @@
 @property (nonatomic,retain) FestivalAnnotation *campgroundAnnotation;
 @property (nonatomic,retain) UIImageView *gpsOn;
 @property (nonatomic,retain) UIImageView *gpsOff;
+@property (nonatomic,retain) RMMarker *campgroundMarker;
+@property (nonatomic,retain) RMMarker *locationMarker;
 
 - (IBAction)changeMapSource:(id)sender;
 - (IBAction)zoomIn:(id)sender;

@@ -64,7 +64,9 @@
     [dict release];
     
     //set background color
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg.png"]];
+    UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg.png"]];
+    self.tableView.backgroundView = bgView;
+    [bgView release];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // Uncomment the following line to preserve selection between presentations.

@@ -9,6 +9,9 @@
 #import "MapViewController.h"
 #import "MKMapView+ZoomLevel.h"
 #import "CampingController.h"
+#import "RMMarkerManager.h"
+#import "RMMarker.h"
+#import "Reachability.h"
 
 #define kDataFilename @"offline-sources.plist"
 
@@ -34,6 +37,7 @@
 @synthesize mapAttribution;
 @synthesize campgroundAnnotation;
 @synthesize gpsOn, gpsOff;
+@synthesize campgroundMarker, locationMarker;
 
 - (void) dealloc {
     [super dealloc];
@@ -48,6 +52,8 @@
     [campgroundAnnotation release];
     [gpsOn release];
     [gpsOff release];
+    [campgroundMarker release];
+    [locationMarker release];
 }
 
 - (void)showCampgroundDetails:(id)sender {
@@ -68,7 +74,7 @@
 }
 
 - (RMOpenCycleMapSource *) loadOnlineCycleSource {
-    RMOpenCycleMapSource *source = [[RMOpenCycleMapSource alloc] init];
+    RMOpenCycleMapSource *source = [[[RMOpenCycleMapSource alloc] init] autorelease];
     //RMCloudMadeMapSource *source = [[RMCloudMadeMapSource alloc] initWithAccessKey:@"cbfee0d2292d4341a9f0fa945be4ccdc" styleNumber:537];
     return source;
 }
@@ -88,14 +94,14 @@
     rmMapView.contents.mapCenter = center;
     
     if (minZoom < rmMapView.contents.tileSource.minZoom) {
-        NSLog(@"===== Scenario 1: load source then set zoom");
+        //NSLog(@"===== Scenario 1: load source then set zoom");
         rmMapView.contents.tileSource = source;
         
         rmMapView.contents.minZoom = minZoom;
         rmMapView.contents.maxZoom = maxZoom;
     }
     else {
-        NSLog(@"===== Scenario 2: set zoom then load source");
+        //NSLog(@"===== Scenario 2: set zoom then load source");
         rmMapView.contents.minZoom = minZoom;
         rmMapView.contents.maxZoom = maxZoom;
         
@@ -125,7 +131,7 @@
     float curStartingZoom = kRouteMeStartingZoom;
     
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2){
-        NSLog(@"Retina Display detected!  Adjusting zoom.");
+        //NSLog(@"Retina Display detected!  Adjusting zoom.");
         curMaxZoom--;
         curStartingZoom--;
     }
@@ -170,7 +176,7 @@
             NSDictionary *src = [sources objectAtIndex:ii];
             bool enabled = [[src objectForKey:@"Enabled"] boolValue];
             if (enabled) {
-                filename = [[NSString alloc] initWithString:[src objectForKey:@"Filename"]];
+                filename = [[[NSString alloc] initWithString:[src objectForKey:@"Filename"]] autorelease];
             //    filename = @"";
             }
         }
@@ -187,10 +193,10 @@
 
 - (IBAction)changeMapSource:(id)sender {
     UISegmentedControl *control = (UISegmentedControl *) sender;
-    NSLog(@"s==> selectedSegmentIndex: %d",control.selectedSegmentIndex);
+    //NSLog(@"s==> selectedSegmentIndex: %d",control.selectedSegmentIndex);
     switch (control.selectedSegmentIndex) {
         case kRouteMeOpenCycleSource:
-            NSLog(@"===> online-cycle");
+            //NSLog(@"===> online-cycle");
             rmMapView.contents.mapCenter = mkMapView.centerCoordinate;
             
             mkMapView.hidden = YES;
@@ -210,7 +216,7 @@
         case kMapKitSource:
             //NSLog(@"===> online-street");
             //[self updateToOnlineStreetSource];
-            NSLog(@"mapkit source");
+            //NSLog(@"mapkit source");
             mkMapView.centerCoordinate = rmMapView.contents.mapCenter;
             
             rmMapView.hidden = YES;
@@ -292,7 +298,7 @@
 }
 
 - (IBAction)showOfflineSources:(id)sender {
-    NSLog(@"switching to offline source view");
+    //NSLog(@"switching to offline source view");
     if (offlineMapSourceController == nil) {
         OfflineMapSourceController *offline = [[OfflineMapSourceController alloc] initWithNibName:@"OfflineMapSourceController" bundle:nil];
         self.offlineMapSourceController = offline;
@@ -304,6 +310,10 @@
     nav.navigationBar.tintColor = [UIColor colorWithRed:247.0/255.0 green:147.0/255.0 blue:30.0/255.0 alpha:1.0];
     [self presentModalViewController:nav animated:YES];
     [nav release];
+}
+
+- (bool)isNetworkAvailable {
+    	return ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable);
 }
 
 #pragma mark - housekeeping
@@ -330,6 +340,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ( ! [self isNetworkAvailable]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Unavailable" message:@"Access will be limited to cached and offline map sources" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+    }
     // Do any additional setup after loading the view from its nib.
     // Start finding our location
     CLLocationManager *manager = [[CLLocationManager alloc] init];
@@ -385,16 +400,25 @@
     UIBarButtonItem *gpsIndicator = [[UIBarButtonItem alloc] initWithCustomView:gpsOff];
     self.navigationItem.rightBarButtonItem = gpsIndicator;
     [gpsIndicator release];
+    
+    // setup the route-me map markers
+    RMMarker *aCampgroundMarker = [[RMMarker alloc]
+                                  initWithUIImage:[UIImage imageNamed:@"mapmarker-campground.png"]
+                                  anchorPoint:CGPointMake(0.5,1.0)];
+    self.campgroundMarker = aCampgroundMarker;
+    [aCampgroundMarker release];
+    
+    [rmMapView.contents.markerManager addMarker:campgroundMarker AtLatLong:mapCenter];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [locationManager startUpdatingLocation];
-    //mkMapView.showsUserLocation = YES;
+    mkMapView.showsUserLocation = YES;
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [locationManager stopUpdatingLocation];
-    //mkMapView.showsUserLocation = NO;
+    mkMapView.showsUserLocation = NO;
 }
 
 - (void)viewDidUnload
@@ -413,6 +437,8 @@
     self.campgroundAnnotation = nil;
     self.gpsOn = nil;
     self.gpsOff = nil;
+    self.campgroundMarker = nil;
+    self.locationMarker = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -439,12 +465,22 @@
         [gpsIndicator release];
     }
     
-    NSLog(@"===== loc update} (%f,%f) accuracy: %f",newLocation.coordinate.latitude,
-          newLocation.coordinate.longitude,newLocation.horizontalAccuracy);
+    // update the position marker
+    if (locationMarker == nil) {
+        RMMarker *aLocationMarker = [[RMMarker alloc]
+                                     initWithUIImage:[UIImage imageNamed:@"mapmarker-user.png"]
+                                     anchorPoint:CGPointMake(0.5,1.0)];
+        self.locationMarker = aLocationMarker;
+        [aLocationMarker release];
+        [rmMapView.contents.markerManager addMarker:locationMarker AtLatLong:position.coordinate];
+    }
+    else {
+        [rmMapView.contents.markerManager moveMarker:locationMarker AtLatLon:position.coordinate];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
-    NSLog(@"Error %i", error.code);
+    //NSLog(@"Error %i", error.code);
     
     UIAlertView *alert = [[UIAlertView alloc] 
                           initWithTitle:[error localizedDescription]
@@ -458,7 +494,7 @@
 
 #pragma mark - OfflineMapSourceDelegate methods
 -(void)didDismissOfflineMapSourceController:(OfflineMapSourceController *)controller {
-    NSLog(@"++ just changed offline sources, let's check or change our source type");
+    //NSLog(@"++ just changed offline sources, let's check or change our source type");
     NSString *srcFilename = [self filenameForEnabledOfflineSourceOfType:kOfflineTopoSource];
     if ([srcFilename length] > 0) {
         [self updateToOfflineCycleSource:srcFilename];

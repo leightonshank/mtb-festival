@@ -86,7 +86,7 @@
     [self.loading removeFromSuperview];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    NSLog(@"Error %i", error.code);
+    //NSLog(@"Error %i", error.code);
     if (error.code == NSURLErrorCancelled) return; // this is Error -999
     
     UIAlertView *alert = [[UIAlertView alloc] 

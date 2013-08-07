@@ -79,14 +79,14 @@
 						<string key="NSFrame">{{20, 121}, {280, 159}}</string>
 						<reference key="NSSuperview" ref="677701004"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="446840646"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">The Festival is made possible by the hard work of many, many volunteers helping out doing big and little things all throughout the weekend. There are opportunities to assist with preparing and cooking the food, helping to cleanup after meals, helping with registration/bike swap, registrations, trail work, campground setup and tear-down, leading rides, and much more.</string>
+						<string key="IBUIText">The Festival is made possible by the hard work of many, many volunteers doing big and little things all weekend. There are opportunities to assist with preparing and cooking the food, helping to cleanup after meals, helping with registration, gear swap, trail work, campground setup and tear-down, leading rides, and much more.</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">HelveticaNeue</string>
 							<double key="NSSize">14</double>
@@ -105,7 +105,7 @@
 						<string key="NSFrame">{{45, 20}, {230, 37}}</string>
 						<reference key="NSSuperview" ref="677701004"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="254446475"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -134,7 +134,7 @@
 				<string key="NSFrameSize">{320, 367}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="254446475"/>
+				<reference key="NSNextKeyView" ref="446840646"/>
 				<string key="NSReuseIdentifierKey">_NS:180</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>

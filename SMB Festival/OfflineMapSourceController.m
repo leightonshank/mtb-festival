@@ -62,10 +62,10 @@
 }
 
 - (void) loadOfflineMapData {
-    NSLog(@"[loading offline map source data]");
+    //NSLog(@"[loading offline map source data]");
     NSString *filePath = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        NSLog(@"-> read existing");
+        //NSLog(@"-> read existing");
         // data file exists, so just read it
         NSArray *array = [[NSArray alloc] initWithContentsOfFile:filePath];
         NSMutableArray *data = [[NSMutableArray alloc] initWithArray:array copyItems:YES];
@@ -74,14 +74,15 @@
         [array release];
     }
     else {
-        NSLog(@"-> initialize");
+        //NSLog(@"-> initialize");
         // no data file yet, so init from the template in our resource bundle
         NSString *path = [[NSBundle mainBundle] pathForResource:@"Maps" ofType:@"plist"];
-        NSArray *array = [[[NSDictionary alloc] initWithContentsOfFile:path] objectForKey:@"Root"];
+        NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+        NSArray *array = [dict objectForKey:@"Root"];
         NSMutableArray *data = [[NSMutableArray alloc] initWithArray:array copyItems:YES];
         self.maplist = data;
         [data release];
-        [array release];
+        [dict release];
     }
 }
 
@@ -113,7 +114,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"== view will appear ==");
+    //NSLog(@"== view will appear ==");
     [self loadOfflineMapData];
     [table reloadData];
     
@@ -201,7 +202,7 @@
 
 #pragma mark - Table View Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Selected section:%d , row:%d",[indexPath section],[indexPath row]);
+    //NSLog(@"Selected section:%d , row:%d",[indexPath section],[indexPath row]);
 
     NSDictionary *source = [self sourceForIndexPath:indexPath];
     bool downloaded = [[source objectForKey:@"Downloaded"] boolValue];

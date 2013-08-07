@@ -180,7 +180,7 @@
 					<object class="IBUILabel" id="917704310">
 						<reference key="NSNextResponder" ref="651155319"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 297}, {280, 175}}</string>
+						<string key="NSFrame">{{20, 297}, {280, 160}}</string>
 						<reference key="NSSuperview" ref="651155319"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="23959779"/>
@@ -190,7 +190,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">      The Shenandoah Mtn. Bicycle Festival originated in 1997 and since has become a highlight of Virginia's fall cycling scene. The Festival is the largest fundraiser for the Shenandoah Valley Bicycle Coalition (SVBC), the funds from the Festival helps SVBC achieve it’s goals of promoting, educating and increasing cycling awareness in the Shenandoah Valley.</string>
+						<string key="IBUIText">      The Shenandoah Mtn. Bicycle Festival originated in 1997 and since has become a highlight of Virginia's fall cycling scene. The Festival is the largest fundraiser for the Shenandoah Valley Bicycle Coalition (SVBC), helping SVBC achieve its goals of promoting, educating and increasing cycling awareness in the Shenandoah Valley.</string>
 						<object class="NSFont" key="IBUIFont" id="602131949">
 							<string key="NSName">HelveticaNeue</string>
 							<double key="NSSize">14</double>
@@ -206,7 +206,7 @@
 					<object class="IBUILabel" id="23959779">
 						<reference key="NSNextResponder" ref="651155319"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 480}, {280, 170}}</string>
+						<string key="NSFrame">{{20, 465}, {280, 142}}</string>
 						<reference key="NSSuperview" ref="651155319"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="47550673"/>
@@ -216,7 +216,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">      The trail and road riding around Stokesville and in the George Washington National Forest is beautiful and very challenging. When you ride from the Festival location expect plenty of gravel roads, back County pave paved roads, Forest Service fire roads, endless single track trail riding and big old fashion mountains.</string>
+						<string key="IBUIText">      The trail and road riding around Stokesville and in the George Washington National Forest is beautiful and very challenging. When you ride from the Festival location, expect plenty of gravel roads, back county paved roads, Forest Service fire roads, endless single track trail riding and big old fashion mountains.</string>
 						<reference key="IBUIFont" ref="602131949"/>
 						<reference key="IBUITextColor" ref="744537494"/>
 						<nil key="IBUIHighlightedColor"/>
@@ -228,7 +228,7 @@
 					<object class="IBUILabel" id="47550673">
 						<reference key="NSNextResponder" ref="651155319"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 658}, {280, 231}}</string>
+						<string key="NSFrame">{{20, 615}, {280, 231}}</string>
 						<reference key="NSSuperview" ref="651155319"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="933299420"/>
@@ -239,7 +239,7 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSMutableString" key="IBUIText">
-							<characters key="NS.bytes">      During the Festival weekend there is plenty of time to experience the great riding in the area as the opportunity to camp and meet fellow cyclist. An important component of the Festival is giving back to the trails of the National Forest. The two trail work sessions over the weekend have become the largest volunteer trail work projects for the North River Ranger District. The trail work sessions are great opportunity for those wishing to learn about trail maintenance and wanting to give back to the trails we all use.</characters>
+							<characters key="NS.bytes">      During the Festival weekend there is plenty of time to experience the great riding in the area as the opportunity to camp and meet fellow cyclists. An important component of the Festival is giving back to the trails of the National Forest. The two trail work sessions over the weekend have become the largest volunteer trail work projects for the North River Ranger District. The trail work sessions are a great opportunity for those wishing to learn about trail maintenance and wanting to give back to the trails we all use.</characters>
 						</object>
 						<reference key="IBUIFont" ref="602131949"/>
 						<reference key="IBUITextColor" ref="744537494"/>
@@ -252,7 +252,7 @@
 					<object class="IBUILabel" id="933299420">
 						<reference key="NSNextResponder" ref="651155319"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 897}, {280, 114}}</string>
+						<string key="NSFrame">{{20, 854}, {280, 106}}</string>
 						<reference key="NSSuperview" ref="651155319"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
@@ -261,7 +261,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">      There will also be plenty of fun activities for everyone around the campground including: frisbee golf, volleyball and horseshoes. We hope you will join us for the great riding, trail care, friendships and fall foliage.</string>
+						<string key="IBUIText">      There will also be plenty of fun activities for everyone around the campground, including frisbee golf, volleyball and horseshoes. We hope you will join us for the great riding, trail care, friendships and fall foliage.</string>
 						<reference key="IBUIFont" ref="602131949"/>
 						<reference key="IBUITextColor" ref="744537494"/>
 						<nil key="IBUIHighlightedColor"/>
@@ -341,7 +341,7 @@
 						<reference key="IBUIImage" ref="53472705"/>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 1031}</string>
+				<string key="NSFrameSize">{320, 980}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="41317017"/>
@@ -365,6 +365,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 367}</string>
 						<reference key="NSSuperview" ref="528564462"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:174</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -374,6 +375,7 @@
 				</object>
 				<string key="NSFrameSize">{320, 367}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="155254920"/>
 				<string key="NSReuseIdentifierKey">_NS:180</string>
 				<object class="NSColor" key="IBUIBackgroundColor">

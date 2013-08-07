@@ -49,6 +49,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 367}</string>
 						<reference key="NSSuperview" ref="433284475"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:174</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -57,7 +58,7 @@
 				</object>
 				<string key="NSFrameSize">{320, 367}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSNextKeyView"/>
+				<reference key="NSNextKeyView" ref="807706007"/>
 				<string key="NSReuseIdentifierKey">_NS:180</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -131,7 +132,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Bathrooms are available on-site</string>
+						<string key="IBUIText">Bathrooms are available onsite</string>
 						<reference key="IBUIFont" ref="736148027"/>
 						<reference key="IBUITextColor" ref="335669687"/>
 						<nil key="IBUIHighlightedColor"/>
@@ -171,7 +172,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Primitive Shower available and a great river bath!!</string>
+						<string key="IBUIText">Primitive shower available and a great river bath!!</string>
 						<reference key="IBUIFont" ref="736148027"/>
 						<reference key="IBUITextColor" ref="335669687"/>
 						<nil key="IBUIHighlightedColor"/>
@@ -320,7 +321,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Follow to T and turn left staying on 727</string>
+						<string key="IBUIText">Follow to T and turn left, staying on 727</string>
 						<reference key="IBUIFont" ref="736148027"/>
 						<reference key="IBUITextColor" ref="335669687"/>
 						<nil key="IBUIHighlightedColor"/>
@@ -445,7 +446,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">After passing the Stokesville Market, take your next left on left on Rt. 718 (Stokesville Rd.) and cross over the Iron Bridge</string>
+						<string key="IBUIText">After passing the Stokesville Market, take your next left on Rt. 718 (Stokesville Rd.) and cross over the iron bridge</string>
 						<reference key="IBUIFont" ref="736148027"/>
 						<reference key="IBUITextColor" ref="335669687"/>
 						<nil key="IBUIHighlightedColor"/>

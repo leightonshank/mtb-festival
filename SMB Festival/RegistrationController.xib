@@ -58,7 +58,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Register on-site at the Festival or pre-register by Oct. 4th and save money!</string>
+						<string key="IBUIText">Register onsite at the Festival or pre-register by Oct. 4th and save money!</string>
 						<object class="NSFont" key="IBUIFont" id="996560195">
 							<string key="NSName">Verdana</string>
 							<double key="NSSize">13</double>
@@ -97,7 +97,7 @@
 					<object class="IBUILabel" id="898446183">
 						<reference key="NSNextResponder" ref="190148064"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{40, 119}, {260, 33}}</string>
+						<string key="NSFrame">{{40, 119}, {260, 51}}</string>
 						<reference key="NSSuperview" ref="190148064"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1035711301"/>
@@ -107,18 +107,18 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Kids 12-16 years of age 1/2 price, under 12 free.</string>
+						<string key="IBUIText">Registration for kids 12-16 years of age is 1/2 price, kids under 12 register for free.</string>
 						<reference key="IBUIFont" ref="996560195"/>
 						<reference key="IBUITextColor" ref="46949311"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<int key="IBUINumberOfLines">2</int>
+						<int key="IBUINumberOfLines">3</int>
 					</object>
 					<object class="IBUILabel" id="473198794">
 						<reference key="NSNextResponder" ref="190148064"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{40, 160}, {260, 50}}</string>
+						<string key="NSFrame">{{40, 178}, {260, 50}}</string>
 						<reference key="NSSuperview" ref="190148064"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="811582017"/>
@@ -128,7 +128,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">You must register on-site at the campground even if you are pre-registered.</string>
+						<string key="IBUIText">You must register onsite at the campground even if you are pre-registered.</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Verdana-Bold</string>
 							<double key="NSSize">13</double>
@@ -143,7 +143,7 @@
 					<object class="IBUILabel" id="811582017">
 						<reference key="NSNextResponder" ref="190148064"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 223}, {280, 21}}</string>
+						<string key="NSFrame">{{20, 236}, {280, 21}}</string>
 						<reference key="NSSuperview" ref="190148064"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="417866020"/>
@@ -167,7 +167,7 @@
 					<object class="IBUILabel" id="421054445">
 						<reference key="NSNextResponder" ref="190148064"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 289}, {280, 21}}</string>
+						<string key="NSFrame">{{20, 302}, {280, 21}}</string>
 						<reference key="NSSuperview" ref="190148064"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="358224052"/>
@@ -187,7 +187,7 @@
 					<object class="IBUILabel" id="363076674">
 						<reference key="NSNextResponder" ref="190148064"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 355}, {280, 21}}</string>
+						<string key="NSFrame">{{20, 368}, {280, 21}}</string>
 						<reference key="NSSuperview" ref="190148064"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="239367029"/>
@@ -207,7 +207,7 @@
 					<object class="IBUILabel" id="417866020">
 						<reference key="NSNextResponder" ref="190148064"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{40, 247}, {260, 34}}</string>
+						<string key="NSFrame">{{40, 260}, {260, 34}}</string>
 						<reference key="NSSuperview" ref="190148064"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="421054445"/>
@@ -233,7 +233,7 @@
 					<object class="IBUILabel" id="358224052">
 						<reference key="NSNextResponder" ref="190148064"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{40, 313}, {260, 34}}</string>
+						<string key="NSFrame">{{40, 326}, {260, 34}}</string>
 						<reference key="NSSuperview" ref="190148064"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="363076674"/>
@@ -255,7 +255,7 @@
 					<object class="IBUILabel" id="239367029">
 						<reference key="NSNextResponder" ref="190148064"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{40, 379}, {260, 56}}</string>
+						<string key="NSFrame">{{40, 392}, {260, 56}}</string>
 						<reference key="NSSuperview" ref="190148064"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -316,7 +316,7 @@
 					<object class="IBUIImageView" id="1035711301">
 						<reference key="NSNextResponder" ref="190148064"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{16, 160}, {16, 16}}</string>
+						<string key="NSFrame">{{16, 178}, {16, 16}}</string>
 						<reference key="NSSuperview" ref="190148064"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="473198794"/>
@@ -326,7 +326,7 @@
 						<reference key="IBUIImage" ref="1067108916"/>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 455}</string>
+				<string key="NSFrameSize">{320, 468}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="816976320"/>
@@ -476,8 +476,8 @@
 							<reference ref="143897685"/>
 							<reference ref="264236033"/>
 							<reference ref="509953103"/>
-							<reference ref="898446183"/>
 							<reference ref="974733129"/>
+							<reference ref="898446183"/>
 							<reference ref="473198794"/>
 							<reference ref="1035711301"/>
 							<reference ref="811582017"/>
